@@ -10,60 +10,11 @@
 		initDevMode();
 	});
 
-	const visiblePosts = $derived(
-		data.recentPosts
-			.filter((p) => {
-				if (devModeState.active) return true;
-				const tags = (p.meta.tags || []).map((t) =>
-					typeof t === 'string' ? t.toLowerCase().trim() : ''
-				);
-				return tags.includes('completed') || tags.includes('coming soon');
-			})
-			.slice(0, 3)
-	);
-
-	let typedText = $state('');
-	let showCursor = $state(true);
-
 	onMount(() => {
-		// --- Typing animation ---
-		const typeSequence = async () => {
-			const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-			const str1 = 'made simple.';
-			const str2 = 'the right way.';
-
-			await sleep(500);
-
-			for (let i = 0; i <= str1.length; i++) {
-				typedText = str1.substring(0, i);
-				await sleep(Math.random() * 50 + 50);
-			}
-
-			await sleep(1500);
-
-			for (let i = str1.length; i >= 0; i--) {
-				typedText = str1.substring(0, i);
-				await sleep(40);
-			}
-
-			await sleep(500);
-
-			for (let i = 0; i <= str2.length; i++) {
-				typedText = str2.substring(0, i);
-				await sleep(Math.random() * 50 + 50);
-			}
-
-			await sleep(1500);
-			showCursor = false;
-		};
-
-		typeSequence();
-
-		// --- Cursor glow effect ---
-		// Delayed for performance on load
+		// Cursor glow
 		const glow = document.getElementById('cursor-glow') as HTMLElement;
 		if (!glow) return;
-		
+
 		let raf: number;
 		let targetX = -600;
 		let targetY = -600;
@@ -83,14 +34,11 @@
 			raf = requestAnimationFrame(render);
 		};
 
-		const initGlow = () => {
+		const delayTimeout = setTimeout(() => {
 			window.addEventListener('mousemove', onMouseMove, { passive: true });
 			render();
-			// Fade in once active
 			glow.style.opacity = '1';
-		};
-
-		const delayTimeout = setTimeout(initGlow, 1000);
+		}, 800);
 
 		return () => {
 			clearTimeout(delayTimeout);
@@ -98,268 +46,227 @@
 			cancelAnimationFrame(raf);
 		};
 	});
+
+	const visiblePosts = $derived(
+		data.recentPosts
+			.filter((p) => {
+				if (devModeState.active) return true;
+				const tags = (p.meta.tags || []).map((t) =>
+					typeof t === 'string' ? t.toLowerCase().trim() : ''
+				);
+				return tags.includes('completed') || tags.includes('coming soon');
+			})
+			.slice(0, 3)
+	);
+
+	const features = [
+		{
+			icon: 'code',
+			title: 'Software Guides',
+			desc: 'PID, motion profiling, sensors, and autonomous programming - with real code.'
+		},
+		{
+			icon: 'cpu',
+			title: 'Interactive Simulators',
+			desc: 'Visualize PID, feedforward, and mecanum kinematics in the browser.'
+		},
+		{
+			icon: 'star',
+			title: 'Portfolio & Code Reviews',
+			desc: 'Get actionable feedback on your engineering portfolio and code from experienced alumni.'
+		}
+	];
 </script>
 
 <svelte:head>
-	<title>FTC Blueprint | The Ultimate Guide for FIRST Tech Challenge</title>
-	<meta name="description" content="FTC Blueprint (ftcblueprint) is the complete guide for FIRST Tech Challenge. Learn about coding, hardware, and strategy with blueprintftc." />
+	<title>Blueprint | FTC Knowledge Base</title>
+	<meta name="description" content="Blueprint is the free technical reference for FIRST Tech Challenge - covering software, hardware, and outreach, written by FTC competitors." />
 </svelte:head>
 
-<!-- Cursor glow — fixed, pointer-events: none, lazily follows cursor -->
+<!-- Cursor glow -->
 <div id="cursor-glow" aria-hidden="true"></div>
 
 <!-- Hero -->
 <section class="hero">
-	<div class="hero-bg" aria-hidden="true">
-
-		<!-- Hexagon decoration: left half peeks from right edge -->
-		<div class="hex-wrap" aria-hidden="true">
-			<svg class="hex-svg" viewBox="0 0 760 760" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
-				<defs>
-					<linearGradient id="hex-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-						<stop offset="0%" stop-color="#74D7ED" />
-						<stop offset="100%" stop-color="#7EFFA0" />
-					</linearGradient>
-					<!-- Soft glow filter -->
-					<filter id="hex-glow" x="-20%" y="-20%" width="140%" height="140%">
-						<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-						<feMerge>
-							<feMergeNode in="blur" />
-							<feMergeNode in="SourceGraphic" />
-						</feMerge>
-					</filter>
-				</defs>
-				<!--
-                    Flat-top hexagon, center (380,380), R=310
-                    Points: (690,380) (535,649) (225,649) (70,380) (225,111) (535,111)
-                    stroke-width=58 with stroke-linejoin=round gives the chunky rounded look
-                -->
-				<polygon
-					points="690,380 535,649 225,649 70,380 225,111 535,111"
-					fill="none"
-					stroke="url(#hex-grad)"
-					stroke-width="58"
-					stroke-linejoin="round"
-					filter="url(#hex-glow)"
-					class="hex-poly"
-				/>
-			</svg>
+	<div class="hero__inner container">
+		<div class="hero__text">
+			<div class="hero__label">Team Luminary #35300</div>
+			<h1>The complete<br />FTC guide.</h1>
+			<p class="hero__desc">
+				Explore in-depth articles, interactive simulators, and real codebase examples built directly by FTC teams for FTC competitors.
+			</p>
+			<div class="hero__cta">
+				<a href="/software" class="btn btn-primary" id="hero-read-btn">Browse articles</a>
+				<a href="/simulators/pid" class="btn btn-ghost" id="hero-sim-btn">Open simulators</a>
+			</div>
 		</div>
-	</div>
 
-	<div class="container hero-content animate-fade-up">
-		<div class="eyebrow">
-			<span class="tag tag--cyan">{__APP_VERSION__}</span>
-			{#if devModeState.active}
-				<span class="tag tag--green" style="font-family: var(--font-mono); font-size: 0.7rem;">
-					Last Deployment: {__BUILD_TIME__}
-				</span>
-			{/if}
-		</div>
-		<h1 class="gradient-text">
-			FTC<br />
-			{typedText}{#if showCursor}<span class="cursor"></span>{/if}
-		</h1>
-		<p class="hero-desc">
-			The complete blueprint for FTC — coding, hardware, and outreach, all made simple.
-		</p>
-		<div class="hero-cta">
-			<a href="/software" class="btn btn-primary" id="hero-read-btn">Read the prints</a>
-			<a href="/about" class="btn btn-ghost" id="hero-about-btn">Chuds</a>
+		<div class="hero__features">
+			{#each features as f, i}
+				<div class="feature-row">
+					<div class="feature-icon" aria-hidden="true">
+						{#if f.icon === 'code'}
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+						{:else if f.icon === 'cpu'}
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+						{:else}
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+						{/if}
+					</div>
+					<div class="feature-text">
+						<span class="feature-title">{f.title}</span>
+						<span class="feature-desc">{f.desc}</span>
+					</div>
+				</div>
+			{/each}
 		</div>
 	</div>
 </section>
 
-<!-- Recent Posts -->
+<!-- Recent Articles -->
 {#if visiblePosts.length > 0}
-	<section class="recent section">
+	<section class="recent">
 		<div class="container">
-			<div class="section-header stagger">
-				<div class="section-label animate-fade-up">
-					<span class="tag tag--green">Recent</span>
-				</div>
-				<h2 class="animate-fade-up">Latest articles</h2>
+			<div class="recent__header">
+				<h2>Latest articles</h2>
+				<a href="/software" class="view-all-link" id="home-view-all-link">View all -></a>
 			</div>
 
-			<div class="post-grid stagger">
+			<div class="post-grid">
 				{#each visiblePosts as post}
 					<BlogCard {post} />
 				{/each}
 			</div>
-
-			{#if visiblePosts.length >= 3}
-				<div class="view-all animate-fade-up">
-					<a href="/software" class="btn btn-ghost" id="home-view-all-btn">View all prints →</a>
-				</div>
-			{/if}
 		</div>
 	</section>
 {/if}
 
 <style>
-	/* Cursor glow */
-	#cursor-glow {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 240px;
-		height: 240px;
-		margin-left: -120px;
-		margin-top: -120px;
-		border-radius: 50%;
-		pointer-events: none;
-		z-index: 9999;
-		background: radial-gradient(
-			circle,
-			rgba(116, 215, 237, 0.05) 0%,
-			rgba(126, 255, 160, 0.02) 45%,
-			transparent 70%
-		);
-		will-change: transform, opacity;
-		opacity: 0;
-		transition: opacity 2s ease;
-	}
-
-	/* Hero */
+	/* -- Hero ----------------------------------------------- */
 	.hero {
-		position: relative;
-		min-height: calc(100vh - var(--header-height));
-		display: flex;
-		align-items: center;
-		overflow: hidden;
-		background: var(--bg);
+		border-bottom: 1px solid var(--border-subtle);
+		background: var(--gradient-hero);
 	}
 
 	:global(html.dark) .hero {
 		background: var(--bg-banner);
 	}
 
-	.hero-bg {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-	}
-
-	/* Hexagon decoration */
-	.hex-wrap {
-		position: absolute;
-		/* Position so roughly the left half of the hex is visible */
-		right: -380px;
-		top: 50%;
-		transform: translateY(-50%);
-		width: 760px;
-		height: 760px;
-		pointer-events: none;
-		z-index: 0;
-		/* Fade left edge so it blends into the page naturally */
-		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 18%, black 100%);
-		mask-image: linear-gradient(to right, transparent 0%, black 18%, black 100%);
-	}
-
-	.hex-svg {
-		width: 100%;
-		height: 100%;
-		opacity: 0.85;
-		animation: hex-drift 8s ease-in-out infinite;
-		will-change: transform;
-	}
-
-	.hex-poly {
-		/* Subtle paint-on entrance */
-		stroke-dasharray: 2200;
-		stroke-dashoffset: 2200;
-		opacity: 0;
-		/* 2 seconds is the time it takes before hexagon starts drawing */
-		animation: hex-draw 2s cubic-bezier(0.4, 0, 0.2, 1) 2s forwards;
-	}
-
-	@keyframes hex-draw {
-		from {
-			opacity: 0;
-			stroke-dashoffset: 2200;
-		}
-		to {
-			opacity: 1;
-			stroke-dashoffset: 0;
-		}
-	}
-
-	@keyframes hex-drift {
-		0%,
-		100% {
-			transform: translateY(0px);
-		}
-		50% {
-			transform: translateY(-12px);
-		}
-	}
-
-	/* Hero content */
-	.hero-content {
-		position: relative;
-		z-index: 1;
-		padding: 6rem 1.5rem 5rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-
-	.eyebrow {
-		display: flex;
+	.hero__inner {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
 		align-items: center;
-		gap: 0.75rem;
+		padding-top: 5rem;
+		padding-bottom: 5rem;
 	}
 
-	h1 {
-		max-width: 600px;
+	.hero__label {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--accent-cyan);
+		margin-bottom: 1rem;
 	}
 
-	.cursor {
-		display: inline-block;
-		width: 3px;
-		height: 1.1em;
-		background-color: var(--text-primary);
-		vertical-align: text-bottom;
-		margin-left: 4px;
-		animation: blink 1s step-end infinite;
-		border-radius: 1px;
-
+	.hero__text h1 {
+		font-family: var(--font-heading);
+		font-size: clamp(3rem, 6vw, 4.5rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.03em;
+		color: var(--text-primary);
+		margin-bottom: 1.25rem;
 	}
 
-	@keyframes blink {
-		0%,
-		100% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0;
-		}
-	}
-
-	.hero-desc {
-		max-width: 520px;
-		font-size: 1.1rem;
+	.hero__desc {
+		font-size: 1.05rem;
 		color: var(--text-secondary);
 		line-height: 1.7;
+		max-width: 420px;
+		margin-bottom: 2rem;
 	}
 
-	.hero-cta {
+	.hero__cta {
 		display: flex;
-		flex-wrap: wrap;
 		gap: 0.75rem;
-		margin-top: 0.5rem;
+		flex-wrap: wrap;
 	}
 
-	/* Buttons */
+	/* -- Feature list ------------------------------------- */
+	.hero__features {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		background: var(--gradient-card);
+		overflow: hidden;
+	}
+
+	.feature-row {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		padding: 1.4rem 1.75rem;
+		border-bottom: 1px solid var(--border-subtle);
+		transition: background var(--transition-base);
+	}
+
+	.feature-row:last-child {
+		border-bottom: none;
+	}
+
+	.feature-row:hover {
+		background: var(--bg-card-hover);
+	}
+
+	.feature-icon {
+		flex-shrink: 0;
+		width: 36px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: var(--radius-sm);
+		background: var(--bg-secondary);
+		color: var(--text-primary);
+		border: 1px solid var(--border);
+		margin-top: 2px;
+	}
+
+	.feature-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.feature-title {
+		font-family: var(--font-sans);
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--text-primary);
+		line-height: 1.2;
+	}
+
+	.feature-desc {
+		font-size: 0.83rem;
+		color: var(--text-secondary);
+		line-height: 1.55;
+	}
+
+	/* -- Buttons ------------------------------------------ */
 	.btn {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.65em 1.5em;
+		padding: 0.6em 1.4em;
 		border-radius: var(--radius-md);
 		font-family: var(--font-sans);
 		font-size: 0.9rem;
-		font-weight: 600;
+		font-weight: 500;
 		text-decoration: none;
 		cursor: pointer;
 		border: 1px solid transparent;
@@ -371,12 +278,8 @@
 			transform var(--transition-fast);
 	}
 
-	.btn:hover {
-		transform: translateY(-1px);
-	}
-	.btn:active {
-		transform: translateY(0);
-	}
+	.btn:hover { transform: translateY(-1px); }
+	.btn:active { transform: translateY(0); }
 
 	.btn-primary {
 		background: var(--text-primary);
@@ -385,10 +288,9 @@
 	}
 
 	.btn-primary:hover {
-		background: var(--accent-green);
-		border-color: var(--accent-green);
-		color: var(--bg);
-		box-shadow: var(--glow-green);
+		background: var(--accent-cyan);
+		border-color: var(--accent-cyan);
+		color: #ffffff;
 	}
 
 	.btn-ghost {
@@ -398,32 +300,64 @@
 	}
 
 	.btn-ghost:hover {
-		background: rgba(116, 215, 237, 0.06);
+		background: var(--bg-secondary);
 		border-color: var(--text-primary);
 		color: var(--text-primary);
 	}
 
-	/* Recent section */
-	.section {
-		padding: 5rem 0;
+	/* -- Recent articles ---------------------------------- */
+	.recent {
+		padding: 4rem 0 5rem;
 	}
 
-	.section-header {
+	.recent__header {
 		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		margin-bottom: 2.5rem;
+		align-items: baseline;
+		justify-content: space-between;
+		margin-bottom: 2rem;
+	}
+
+	.recent__header h2 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: var(--text-primary);
+	}
+
+	.view-all-link {
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color var(--transition-fast);
+	}
+
+	.view-all-link:hover {
+		color: var(--text-primary);
 	}
 
 	.post-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1.25rem;
 	}
 
-	.view-all {
-		display: flex;
-		justify-content: center;
-		margin-top: 2.5rem;
+	/* -- Responsive --------------------------------------- */
+	@media (max-width: 900px) {
+		.hero__inner {
+			grid-template-columns: 1fr;
+			gap: 2.5rem;
+			padding-top: 3.5rem;
+			padding-bottom: 3.5rem;
+		}
+
+		.post-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.post-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

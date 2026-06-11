@@ -477,10 +477,7 @@
 
 	.logo-mark {
 		font-size: 1.4rem;
-		background: var(--gradient-accent);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: var(--text-primary);
 		line-height: 1;
 	}
 

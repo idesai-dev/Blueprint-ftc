@@ -5,192 +5,225 @@
 	<title>About | Blueprint</title>
 	<meta
 		name="description"
-		content="Learn more about Blueprint, the writer, and the ideas behind the blog."
+		content="Learn more about Luminary Robotics (FTC Team 35300) and the creators of Blueprint."
 	/>
 </svelte:head>
 
-<section class="about-header">
-	<div class="container">
-		<div class="animate-fade-up" style="display:inline-block">
-			<span class="tag tag--green">About</span>
+<header class="post-header text-center">
+	<div class="post-header-bg" aria-hidden="true"></div>
+	<div class="container container--narrow">
+		<div class="animate-fade-up" style="margin-bottom: 1rem;">
+			<span class="badge">FTC Team 35300</span>
 		</div>
-		<h1 class="animate-fade-up" style="animation-delay:60ms">Meet the Chuds.</h1>
+		<h1 class="post-title animate-fade-up" style="animation-delay:60ms; margin: 0 auto 1rem;">Luminary Robotics</h1>
+		<p class="subtitle animate-fade-up" style="animation-delay:120ms">
+			An elite competitive robotics organization building the future through engineering, community outreach, and STEM education.
+		</p>
+		<div class="title-rule animate-fade-up mx-auto" style="animation-delay:180ms" aria-hidden="true"></div>
 	</div>
-</section>
+</header>
 
-<section class="about-body">
+<section class="about-section">
 	<div class="container">
-		<div class="about-grid animate-fade-up" style="animation-delay:120ms">
-			<div class="about-main prose-like">
-				<h2>Hello there 👋</h2>
+		<div class="about-grid animate-fade-up" style="animation-delay: 200ms">
+			
+			<div class="main-content">
+				<h2>The Origin Story</h2>
 				<p>
-					Welcome to <strong>Blueprint</strong> - a WORK IN PROGRESS digital notebook for FTC, engineering,
-					and more!
+					Luminary Robotics is a rookie team formed from the merger of four veteran teams: <strong>Hunga Munga</strong>, <strong>Slingshot</strong>, <strong>ChaiGPT</strong>, and <strong>Shooting Stars</strong>. Based in Austin, Texas, our roster brings together years of competitive experience and technical expertise.
+				</p>
+				<p>
+					We created <strong>Blueprint</strong> as a digital notebook and resource hub to document our journey, share our engineering processes, and give back to the FTC community.
 				</p>
 
+
+
+				<h2 style="margin-top: 3rem;">Get in Touch</h2>
 				<p>
-					Check out our <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
-						>YouTube channel!</a
-					>
+					Check out our <a href="https://luminaryrobotics.org" target="_blank" rel="noopener noreferrer">official team website</a> or watch our matches and reveals on <a href="https://youtube.com/@luminaryrobotics" target="_blank" rel="noopener noreferrer">YouTube</a>.
 				</p>
 			</div>
 
-			<aside class="about-sidebar">
+			<aside class="sidebar">
 				<div class="sidebar-card">
 					<div class="sidebar-icon">⬡</div>
-					<h4>Ishaan Desai - Slingshot <br /> (FTC Team 20240) <br /> Arnav Saraf</h4>
-					<p>Based in Austin, Texas</p>
+					<h4>The Creators</h4>
+					<p>
+						<strong>Ishaan Desai</strong> & <strong>Arnav Saraf</strong><br>
+						Members of legacy team Slingshot (FTC 20240), now engineering the future with Luminary Robotics.
+					</p>
 					<div class="sidebar-links">
 						<a href="/software" class="sidebar-link">
-							<svg
-								width="14"
-								height="14"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								aria-hidden="true"
-								><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline
-									points="14 2 14 8 20 8"
-								/></svg
-							>
-							Read the prints
+							Read the prints →
 						</a>
 					</div>
 				</div>
 
 				<div class="sidebar-card sidebar-card--muted">
-					<h4>The Idea</h4>
+					<h4>Core Values</h4>
 					<ul class="stack-list">
-						<li><span class="tag tag--cyan">Clairity</span></li>
+						<li><span class="tag tag--cyan">Clarity</span></li>
 						<li><span class="tag tag--green">Simplicity</span></li>
 						<li><span class="tag tag--yellow">Results</span></li>
 					</ul>
 				</div>
 			</aside>
+
 		</div>
 	</div>
 </section>
 
 <style>
-	.about-header {
-		padding: 4rem 0 2rem;
-		background: var(--gradient-hero);
+	.post-header {
+		position: relative;
+		padding: 4rem 0 3rem;
 		border-bottom: 1px solid var(--border-subtle);
+		background: var(--gradient-hero);
+		overflow: hidden;
+		text-align: center;
 	}
 
-	.about-header .container {
+	.post-header .container {
+		position: relative;
+		z-index: 1;
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		align-items: center;
 	}
 
-	.about-body {
-		padding: 3rem 0 6rem;
+	.post-header h1 {
+		font-size: clamp(2.5rem, 8vw, 4rem);
+		line-height: 1.1;
+		max-width: 800px;
+	}
+
+	.subtitle {
+		font-size: 1.15rem;
+		color: var(--text-secondary);
+		max-width: 680px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	.title-rule {
+		height: 2px;
+		background: var(--gradient-accent);
+		border-radius: 2px;
+		width: 60px;
+		opacity: 0.6;
+		margin: 1.5rem auto 0;
+	}
+
+	.badge {
+		display: inline-block;
+		padding: 0.3rem 0.8rem;
+		background: rgba(116, 215, 237, 0.1);
+		color: var(--accent-cyan);
+		border-radius: var(--radius-pill);
+		font-size: 0.75rem;
+		font-family: var(--font-mono);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.about-section {
+		padding: 4rem 0 8rem;
 	}
 
 	.about-grid {
 		display: grid;
-		grid-template-columns: 1fr 260px;
-		gap: 3rem;
+		grid-template-columns: 1fr 300px;
+		gap: 4rem;
 		align-items: start;
 	}
 
-	@media (max-width: 720px) {
+	@media (max-width: 820px) {
 		.about-grid {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 3rem;
 		}
 	}
 
-	/* Prose-like styles for about */
-	.prose-like h2 {
-		font-size: 1.6rem;
+	.main-content h2 {
+		font-size: 1.75rem;
 		margin-bottom: 1rem;
 		color: var(--text-primary);
 	}
 
-	.prose-like p {
+	.main-content p {
 		color: var(--text-body);
 		line-height: 1.8;
-		margin-bottom: 1.2rem;
+		margin-bottom: 1.25rem;
+		font-size: 1.05rem;
 	}
 
-	.prose-like a {
+	.main-content a {
+		color: var(--accent-cyan);
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+		transition: border-color var(--transition-fast);
+	}
+
+	.main-content a:hover {
+		border-color: var(--accent-cyan);
+	}
+
+	.main-content strong {
 		color: var(--text-primary);
-		text-decoration: underline;
-		text-underline-offset: 3px;
+		font-weight: 600;
 	}
 
-	.prose-like a:hover {
-		color: var(--accent-green);
-	}
 
-	.prose-like strong {
-		color: var(--text-primary);
-	}
 
 	/* Sidebar */
-	.about-sidebar {
+	.sidebar {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 1.5rem;
 	}
 
 	.sidebar-card {
-		background: var(--gradient-card);
+		background: var(--bg-card);
 		border: 1px solid var(--border);
 		border-radius: var(--radius-lg);
 		padding: 1.5rem;
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
-		transition: border-color var(--transition-base);
-	}
-
-	.sidebar-card:hover {
-		border-color: var(--text-primary);
 	}
 
 	.sidebar-card--muted {
-		background: var(--bg-card);
+		background: var(--bg-secondary);
 	}
 
 	.sidebar-icon {
-		font-size: 2rem;
-		background: var(--gradient-accent);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		font-size: 1.8rem;
+		color: var(--accent-cyan);
 		line-height: 1;
+		margin-bottom: 0.5rem;
 	}
 
 	.sidebar-card h4 {
-		font-size: 1rem;
+		font-size: 1.1rem;
 		font-weight: 600;
 		color: var(--text-primary);
+		margin-bottom: 0.25rem;
 	}
 
 	.sidebar-card p {
-		font-size: 0.85rem;
+		font-size: 0.9rem;
 		color: var(--text-secondary);
 		line-height: 1.6;
 	}
 
 	.sidebar-links {
-		display: flex;
-		flex-direction: column;
-		gap: 0.4rem;
-		margin-top: 0.25rem;
+		margin-top: 0.5rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
 	}
 
 	.sidebar-link {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-size: 0.85rem;
+		font-size: 0.9rem;
 		font-weight: 500;
 		color: var(--text-primary);
 		text-decoration: none;
@@ -198,7 +231,7 @@
 	}
 
 	.sidebar-link:hover {
-		color: var(--accent-green);
+		color: var(--accent-cyan);
 	}
 
 	.stack-list {
@@ -206,6 +239,6 @@
 		padding: 0;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.4rem;
+		gap: 0.5rem;
 	}
 </style>

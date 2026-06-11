@@ -283,9 +283,11 @@
 
 	.post-body-inner {
 		display: flex;
-		align-items: flex-start;
+		align-items: stretch;
+		justify-content: center;
 		gap: 3rem;
-		/* max-width: calc(var(--container-max) + 220px + 3rem); */
+		max-width: 1400px;
+		margin: 0 auto;
 		padding: 0 2rem 0 1.5rem;
 	}
 
@@ -294,7 +296,8 @@
 		padding: 0;
 		flex: 1;
 		min-width: 0;
-		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
 	}
 
 	/* Post footer */

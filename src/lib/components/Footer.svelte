@@ -9,7 +9,7 @@
 				<span class="logo-mark">⬡</span>
 				<span>Blueprint</span>
 			</a>
-			<p class="tagline">FTC the right way</p>
+			<p class="tagline">The FTC knowledge base</p>
 		</div>
 
 		<nav class="footer-nav" aria-label="Footer navigation">
@@ -20,7 +20,7 @@
 			<a href="/about">About</a>
 		</nav>
 
-		<p class="copy">&copy; {year} Blueprint. Powered by SvelteKit</p>
+		<p class="copy">&copy; {year} Blueprint - An open FTC knowledge base.</p>
 	</div>
 </footer>
 

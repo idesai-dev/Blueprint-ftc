@@ -10,16 +10,23 @@
 	/>
 </svelte:head>
 
+<header class="post-header text-center">
+	<div class="post-header-bg" aria-hidden="true"></div>
+	<div class="container container--wide">
+		<div class="animate-fade-up" style="margin-bottom: 1rem;">
+			<span class="badge">External Tool</span>
+		</div>
+		<h1 class="post-title animate-fade-up" style="animation-delay:60ms; margin: 0 auto 1rem;">Pedro Path Visualizer</h1>
+		<p class="subtitle animate-fade-up" style="animation-delay:120ms">
+			Plan and visualize autonomous paths for the <strong>PedroPathing</strong> library directly in
+			your browser. Draw waypoints, adjust curves, and export path code — all without leaving Blueprint.
+		</p>
+		<div class="title-rule animate-fade-up" style="animation-delay:180ms; margin: 1.5rem auto 0;" aria-hidden="true"></div>
+	</div>
+</header>
+
 <section class="page">
 	<div class="container container--wide">
-		<header class="page-header text-center animate-fade-up">
-			<span class="badge">External Tool</span>
-			<h1>Pedro Path Visualizer</h1>
-			<p class="subtitle">
-				Plan and visualize autonomous paths for the <strong>PedroPathing</strong> library directly in
-				your browser. Draw waypoints, adjust curves, and export path code — all without leaving Blueprint.
-			</p>
-		</header>
 
 		<div class="visualizer-wrap animate-fade-up" style="animation-delay: 100ms">
 			<div class="iframe-shell">
@@ -142,15 +149,38 @@
 
 <style>
 	.page {
-		padding: 6rem 0;
-	}
-	.page-header {
-		margin-bottom: 4rem;
+		padding: 3rem 0 6rem;
 	}
 
-	h1 {
+	.post-header {
+		position: relative;
+		padding: 4rem 0 3rem;
+		border-bottom: 1px solid var(--border-subtle);
+		background: var(--gradient-hero);
+		overflow: hidden;
+		text-align: center;
+	}
+
+	.post-header .container {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.post-header h1 {
 		font-size: clamp(2.5rem, 8vw, 4rem);
-		margin: 1rem 0;
+		line-height: 1.1;
+		max-width: 800px;
+	}
+
+	.title-rule {
+		height: 2px;
+		background: var(--gradient-accent);
+		border-radius: 2px;
+		width: 60px;
+		opacity: 0.6;
 	}
 
 	.subtitle {

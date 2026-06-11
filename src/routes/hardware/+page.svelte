@@ -240,18 +240,18 @@
 		display: inline-flex;
 		align-items: center;
 		padding: 0.6rem 1.2rem;
-		background: rgba(255, 172, 51, 0.08); /* Orange tint */
-		border: 1px solid var(--border-subtle);
+		background: var(--bg-card);
+		border: 1px solid var(--border);
 		border-radius: var(--radius-md);
 		color: var(--text-primary);
 		font-size: 0.85rem;
-		font-weight: 600;
+		font-weight: 500;
 		text-decoration: none;
 		transition: all var(--transition-fast);
 	}
 
 	.review-link:hover {
-		background: rgba(255, 172, 51, 0.15);
+		background: var(--bg-card-hover);
 		border-color: var(--text-primary);
 		transform: translateY(-1px);
 	}

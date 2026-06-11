@@ -11,17 +11,24 @@
 	/>
 </svelte:head>
 
+<header class="post-header text-center">
+	<div class="post-header-bg" aria-hidden="true"></div>
+	<div class="container container--narrow">
+		<div class="animate-fade-up" style="margin-bottom: 1rem;">
+			<span class="badge">Advanced Tools</span>
+		</div>
+		<h1 class="post-title animate-fade-up" style="animation-delay:60ms; margin: 0 auto 1rem;">PID Control Tuner</h1>
+		<p class="subtitle animate-fade-up" style="animation-delay:120ms">
+			Tuning PID (Proportional, Integral, Derivative) constants is one of the most common tasks in
+			FTC. Use this interactive simulator to understand how each constant affects your robot's
+			behavior.
+		</p>
+		<div class="title-rule animate-fade-up" style="animation-delay:180ms; margin: 1.5rem auto 0;" aria-hidden="true"></div>
+	</div>
+</header>
+
 <section class="pid-page">
 	<div class="container container--narrow">
-		<header class="pid-header text-center animate-fade-up">
-			<span class="badge">Advanced Tools</span>
-			<h1>PID Control Tuner</h1>
-			<p class="subtitle">
-				Tuning PID (Proportional, Integral, Derivative) constants is one of the most common tasks in
-				FTC. Use this interactive simulator to understand how each constant affects your robot's
-				behavior.
-			</p>
-		</header>
 
 		<div class="visualizer-wrap animate-fade-up" style="animation-delay: 100ms">
 			<PIDVisualizer />
@@ -66,16 +73,38 @@
 
 <style>
 	.pid-page {
-		padding: 6rem 0;
+		padding: 3rem 0 6rem;
 	}
 
-	.pid-header {
-		margin-bottom: 4rem;
+	.post-header {
+		position: relative;
+		padding: 4rem 0 3rem;
+		border-bottom: 1px solid var(--border-subtle);
+		background: var(--gradient-hero);
+		overflow: hidden;
+		text-align: center;
 	}
 
-	h1 {
+	.post-header .container {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.post-header h1 {
 		font-size: clamp(2.5rem, 8vw, 4rem);
-		margin: 1rem 0;
+		line-height: 1.1;
+		max-width: 800px;
+	}
+
+	.title-rule {
+		height: 2px;
+		background: var(--gradient-accent);
+		border-radius: 2px;
+		width: 60px;
+		opacity: 0.6;
 	}
 
 	.subtitle {

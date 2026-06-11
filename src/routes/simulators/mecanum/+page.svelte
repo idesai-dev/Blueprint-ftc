@@ -114,17 +114,23 @@
 	<meta name="description" content="Interactive mecanum drive kinematics simulator for FTC." />
 </svelte:head>
 
+<header class="post-header text-center">
+	<div class="post-header-bg" aria-hidden="true"></div>
+	<div class="container container--narrow">
+		<div class="animate-fade-up" style="margin-bottom: 1rem;">
+			<span class="badge">Drive Systems</span>
+		</div>
+		<h1 class="post-title animate-fade-up" style="animation-delay:60ms; margin: 0 auto 1rem;">Mecanum Drive <span class="gradient-text">Simulator</span></h1>
+		<p class="subtitle animate-fade-up" style="animation-delay:120ms">
+			Press <strong>W A S D</strong> to strafe and translate, <strong>Q E</strong> to rotate.
+			Watch the wheel power values update in real time.
+		</p>
+		<div class="title-rule animate-fade-up" style="animation-delay:180ms; margin: 1.5rem auto 0;" aria-hidden="true"></div>
+	</div>
+</header>
+
 <section class="sim-page">
 	<div class="container container--narrow">
-
-		<header class="sim-header text-center animate-fade-up">
-			<span class="badge">Drive Systems</span>
-			<h1>Mecanum Drive <span class="gradient-text">Simulator</span></h1>
-			<p class="subtitle">
-				Press <strong>W A S D</strong> to strafe and translate, <strong>Q E</strong> to rotate.
-				Watch the wheel power values update in real time.
-			</p>
-		</header>
 
 		<div class="visualizer-wrap animate-fade-up" style="animation-delay: 100ms">
 			<div class="vis-inner">
@@ -319,13 +325,38 @@
 </section>
 
 <style>
-	.sim-page { padding: 6rem 0; }
-	.sim-header { margin-bottom: 4rem; }
+	.sim-page { padding: 3rem 0 6rem; }
 
-	h1 {
+	.post-header {
+		position: relative;
+		padding: 4rem 0 3rem;
+		border-bottom: 1px solid var(--border-subtle);
+		background: var(--gradient-hero);
+		overflow: hidden;
+		text-align: center;
+	}
+
+	.post-header .container {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.post-header h1 {
 		font-size: clamp(2.5rem, 8vw, 4rem);
 		font-weight: 800;
-		margin: 1rem 0;
+		line-height: 1.1;
+		max-width: 800px;
+	}
+
+	.title-rule {
+		height: 2px;
+		background: var(--gradient-accent);
+		border-radius: 2px;
+		width: 60px;
+		opacity: 0.6;
 	}
 	.gradient-text {
 		background: var(--gradient-accent, linear-gradient(135deg, #0ea5e9, #38bdf8));
