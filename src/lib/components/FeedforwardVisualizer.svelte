@@ -222,9 +222,6 @@
 						resetSim();
 					}}
 				>
-					<span class="mode-icon">
-						{#if m === 'ff-only'}⚡{:else if m === 'pid-only'}🔁{:else}⚡+🔁{/if}
-					</span>
 					<span class="mode-name">
 						{#if m === 'ff-only'}FF Only{:else if m === 'pid-only'}PID Only{:else}FF + PID{/if}
 					</span>
@@ -704,9 +701,6 @@
 		background: color-mix(in srgb, var(--accent-cyan) 10%, var(--bg-secondary));
 	}
 
-	.mode-icon {
-		font-size: 1.1rem;
-	}
 
 	.mode-name {
 		font-family: var(--font-mono);
