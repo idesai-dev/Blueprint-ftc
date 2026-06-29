@@ -442,6 +442,26 @@ html.light .prose pre code {
 	color: #1A1A1A;
 }
 
+@media (max-width: 768px) {
+	.prose pre,
+	.prose pre[class*='language-'] {
+		padding: 1rem 1.25rem;
+		font-size: 0.82rem;
+	}
+
+	.prose pre code {
+		font-size: 0.82rem;
+	}
+
+	.prose code:not(pre code),
+	.prose p code,
+	.prose li code,
+	.prose blockquote code,
+	.prose :not(pre) > code {
+		font-size: 0.82em !important;
+	}
+}
+
 .prose img {
 	max-width: 100%;
 	border-radius: var(--radius-md);
