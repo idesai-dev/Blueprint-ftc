@@ -24,12 +24,13 @@
 				body: json
 			});
 
-			await response.json();
+			const result = await response.json();
 
-			if (response.ok) {
+			if (response.ok && result.success) {
 				submitText = 'Sent!';
 				form.reset();
 			} else {
+				console.error('Web3Forms error:', result);
 				submitText = 'Error!';
 			}
 		} catch (error) {
@@ -50,17 +51,39 @@
 		<p>Have an idea for a guide or a tip? Let us know!</p>
 	</div>
 
-	<form method="POST" class="suggestion-form" id="form" onsubmit={handleSubmit}>
+	<form class="suggestion-form" onsubmit={handleSubmit}>
 		<input type="hidden" name="access_key" value="75203397-0013-44ac-bc8b-b7477ce9a056" />
+		<input type="hidden" name="subject" value="New Suggestion / Guide Request" />
 
 		<div class="form-group">
-			<label for="subject">Subject</label>
+			<label for="topic">Topic / Request</label>
 			<input
 				type="text"
-				id="subject"
-				name="subject"
+				id="topic"
+				name="topic"
 				placeholder="e.g., Roadrunner advanced tuning"
 				required
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="email">Your Email</label>
+			<input
+				type="email"
+				id="email"
+				name="email"
+				placeholder="your@email.com"
+				required
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="link">Link (optional)</label>
+			<input
+				type="text"
+				id="link"
+				name="link"
+				placeholder="GitHub repo, doc, video, etc."
 			/>
 		</div>
 
@@ -75,7 +98,7 @@
 			></textarea>
 		</div>
 
-		<button type="submit" class="submit-btn" id="submitBtn" disabled={isSubmitting}>
+		<button type="submit" class="submit-btn" disabled={isSubmitting}>
 			<span style="color: var(--bg);">{submitText}</span>
 			<svg
 				width="16"

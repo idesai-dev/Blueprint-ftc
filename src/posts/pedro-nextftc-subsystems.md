@@ -1,12 +1,16 @@
 ---
 title: NextFTC Subsystems
 panelCategory: "Pedro Pathing"
-date: 2026-03-28
+date: 2026-06-23
 description: Building modular and reusable robot mechanisms using the NextFTC framework.
 tags: [completed, software, intermediate]
 author: Ishaan Desai
 published: true
 ---
+
+<div style="padding: 0.9rem 1.4rem; background: rgba(114, 178, 204, 0.07); border-left: 4px solid var(--accent-cyan); border-radius: 6px; margin-bottom: 1.5rem; font-size: 0.93rem;">
+For more detailed information, visit the <a href="https://github.com/NextFTC/NextFTC" target="_blank" rel="noopener">official NextFTC GitHub</a> and the <a href="https://github.com/Pedro-Pathing" target="_blank" rel="noopener">Pedro Pathing GitHub</a>.
+</div>
 
 NextFTC is a powerful command-based framework for FTC that helps you organize your robot code into **Subsystems** and **Commands**. This makes your code more modular, easier to test, and prevents hardware conflicts.
 

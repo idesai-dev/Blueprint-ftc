@@ -126,7 +126,7 @@ header, .card, .mobile-toggle-fab, .docbot-wrapper {
 html {
 	scroll-behavior: smooth;
 	font-size: 16px;
-	overflow-x: hidden;
+	overflow-x: clip;
 }
 
 body {
@@ -136,7 +136,7 @@ body {
 	line-height: 1.7;
 	min-height: 100vh;
 	width: 100%;
-	overflow-x: hidden;
+	overflow-x: clip;
 	transition:
 		background-color var(--transition-slow),
 		color var(--transition-slow);
@@ -237,6 +237,13 @@ a {
 }
 
 .prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+	scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+.prose h1,
 .prose h2 {
 	font-family: var(--font-heading);
 	color: var(--text-primary);
@@ -251,29 +258,29 @@ a {
 .prose h4 {
 	font-family: var(--font-sans);
 	color: var(--text-primary);
-	margin-top: 2.5rem;
-	margin-bottom: 0.75rem;
+	margin-top: 1.75rem;
+	margin-bottom: 0.6rem;
 	line-height: 1.3;
 }
 
 .prose h2 {
 	font-size: 2rem;
-	margin-top: 3.5rem;
-	margin-bottom: 1.5rem;
+	margin-top: 2.5rem;
+	margin-bottom: 1rem;
 }
 .prose h3 {
 	font-size: 1.25rem;
-	margin-top: 2.5rem;
-	margin-bottom: 1.2rem;
+	margin-top: 2rem;
+	margin-bottom: 0.75rem;
 }
 .prose h4 {
 	font-size: 1.1rem;
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+	margin-top: 1.5rem;
+	margin-bottom: 0.6rem;
 }
 
 .prose p {
-	margin-bottom: 1.8rem;
+	margin-bottom: 1.2rem;
 	color: var(--text-body);
 	line-height: 1.7;
 }
@@ -303,12 +310,12 @@ a {
 
 .prose ul,
 .prose ol {
-	margin-bottom: 1.8rem;
+	margin-bottom: 1.2rem;
 	padding-left: 1.5rem;
 }
 
 .prose li {
-	margin-bottom: 0.75rem;
+	margin-bottom: 0.4rem;
 	color: var(--text-body);
 }
 
@@ -318,8 +325,8 @@ a {
 
 .prose blockquote {
 	border-left: 3px solid var(--border);
-	margin: 2.5rem 0;
-	padding: 1.25rem 1.75rem;
+	margin: 1.5rem 0;
+	padding: 1rem 1.5rem;
 	background: var(--bg-secondary);
 	border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 	color: var(--text-secondary);
@@ -357,13 +364,13 @@ a {
 	height: 1px;
 	background: var(--gradient-accent);
 	opacity: 0.2;
-	margin: 2.5rem 0;
+	margin: 1.75rem 0;
 }
 
 .prose table {
 	width: 100%;
 	border-collapse: collapse;
-	margin: 2.5rem 0;
+	margin: 1.75rem 0;
 	font-size: 0.92rem;
 	background: var(--bg-card);
 	border-radius: var(--radius-md);
@@ -404,21 +411,13 @@ a {
 	background: color-mix(in srgb, var(--bg-secondary) 50%, transparent);
 }
 
-.prose hr {
-	border: none;
-	height: 1px;
-	background: var(--gradient-accent);
-	opacity: 0.2;
-	margin: 2.5rem 0;
-}
-
 .prose pre,
 .prose pre[class*='language-'] {
 	background: var(--bg-code) !important;
 	border: 1px solid var(--border-subtle);
 	border-radius: var(--radius-md);
 	padding: 1.5rem 2rem;
-	margin: 3rem 0;
+	margin: 1.75rem 0;
 	overflow-x: auto;
 	box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
 	position: relative;
@@ -435,12 +434,12 @@ html.light .prose pre {
 	border: none !important;
 	font-size: 0.9rem;
 	line-height: 1.7;
-	color: #e0e0e0 !important;
+	color: #A9B7C6;
 	font-family: var(--font-mono);
 }
 
 html.light .prose pre code {
-	color: #2d2d2d !important;
+	color: #1A1A1A;
 }
 
 .prose img {

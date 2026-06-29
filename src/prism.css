@@ -1,7 +1,7 @@
-/* Prism.js Tomorrow Night Eighties theme */
+/* Android Studio Darcula-inspired dark theme */
 code[class*='language-'],
 pre[class*='language-'] {
-	color: #ccc;
+	color: #A9B7C6;
 	font-family: var(--font-mono);
 	font-size: 1em;
 	text-align: left;
@@ -10,18 +10,15 @@ pre[class*='language-'] {
 	word-break: normal;
 	word-wrap: normal;
 	line-height: 1.5;
-
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	tab-size: 4;
-
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
 }
 
-/* Code blocks */
 pre[class*='language-'] {
 	padding: 1em;
 	margin: 0.5em 0;
@@ -31,78 +28,92 @@ pre[class*='language-'] {
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
 	background: var(--bg-code);
-	border-radius:1rem;
+	border-radius: 1rem;
 }
 
-/* Inline code */
 :not(pre) > code[class*='language-'] {
 	padding: 0.1em;
 	border-radius: 0.3em;
 	white-space: normal;
 }
 
+/* Comments - muted grey, italic */
 .token.comment,
 .token.block-comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: #999;
+	color: #7A8799;
+	font-style: italic;
 }
 
+/* Punctuation - soft blue-grey */
 .token.punctuation {
-	color: #ccc;
+	color: #A9B7C6;
 }
 
+/* Tags, attr-name */
 .token.tag,
 .token.attr-name,
 .token.namespace,
 .token.deleted {
-	color: #e2777a;
+	color: #E8BF6A;
 }
 
+/* Function names */
 .token.function-name {
-	color: #6196cc;
+	color: #FFC66D;
 }
 
+/* Booleans and numbers - steel blue */
 .token.boolean,
-.token.number,
-.token.function {
-	color: #f08d49;
+.token.number {
+	color: #6897BB;
 }
 
+/* Function calls */
+.token.function {
+	color: #FFC66D;
+}
+
+/* Class names, constants, symbols - gold */
 .token.property,
 .token.class-name,
 .token.constant,
 .token.symbol {
-	color: #f8c555;
+	color: #FFC66D;
 }
 
+/* Keywords - Darcula orange */
 .token.selector,
 .token.important,
 .token.atrule,
 .token.keyword,
 .token.builtin {
-	color: #cc99cd;
+	color: #CC7832;
 }
 
+/* Strings - Darcula green */
 .token.string,
 .token.char,
 .token.attr-value,
 .token.regex,
 .token.variable {
-	color: #7effa0;
+	color: #6A8759;
 }
 
+/* Operators */
 .token.operator,
 .token.entity,
 .token.url {
-	color: #67cdcc;
+	color: #A9B7C6;
 }
 
 .token.important,
 .token.bold {
 	font-weight: bold;
 }
+
 .token.italic {
 	font-style: italic;
 }
@@ -112,31 +123,91 @@ pre[class*='language-'] {
 }
 
 .token.inserted {
-	color: green;
+	color: #6A8759;
 }
 
-/* Light mode overrides */
-:global(html.light) .token.comment {
-	color: #8e908c;
+/* -------------------------------------------------- */
+/* Light mode - IntelliJ Light inspired               */
+/* -------------------------------------------------- */
+
+html.light code[class*='language-'],
+html.light pre[class*='language-'] {
+	color: #1A1A1A;
 }
-:global(html.light) .token.keyword {
-	color: #8959a8;
+
+html.light .token.comment,
+html.light .token.block-comment,
+html.light .token.prolog,
+html.light .token.doctype,
+html.light .token.cdata {
+	color: #7F7F7F;
+	font-style: italic;
 }
-:global(html.light) .token.string {
-	color: #718c00;
+
+html.light .token.punctuation {
+	color: #3A3A3A;
 }
-:global(html.light) .token.function {
-	color: #4271ae;
+
+html.light .token.keyword,
+html.light .token.builtin,
+html.light .token.atrule,
+html.light .token.selector {
+	color: #0033B3;
 }
-:global(html.light) .token.number {
-	color: #f5871f;
+
+html.light .token.string,
+html.light .token.char,
+html.light .token.attr-value,
+html.light .token.regex {
+	color: #067D17;
 }
-:global(html.light) .token.class-name {
-	color: #c82829;
+
+html.light .token.function,
+html.light .token.function-name {
+	color: #00627A;
 }
-:global(html.light) .token.operator {
-	color: #3e999f;
+
+html.light .token.number,
+html.light .token.boolean {
+	color: #1750EB;
 }
-:global(html.light) .token.punctuation {
-	color: #4d4d4c;
+
+html.light .token.class-name {
+	color: #00627A;
+}
+
+html.light .token.property,
+html.light .token.constant {
+	color: #871094;
+}
+
+html.light .token.operator,
+html.light .token.entity,
+html.light .token.url {
+	color: #3A3A3A;
+}
+
+html.light .token.tag {
+	color: #174AD4;
+}
+
+html.light .token.attr-name,
+html.light .token.namespace {
+	color: #174AD4;
+}
+
+html.light .token.variable {
+	color: #660E7A;
+}
+
+html.light .token.inserted {
+	color: #067D17;
+}
+
+html.light .token.deleted {
+	color: #C00000;
+}
+
+html.light .token.symbol {
+	color: #871094;
 }

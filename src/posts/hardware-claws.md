@@ -1,6 +1,6 @@
 ---
 title: 'Claws'
-date: 2026-04-03
+date: 2026-04-30
 description: Building claw and end effector mechanisms for precise manipulation.
 tags: ["completed", "hardware", "intermediate"]
 author: Blueprint

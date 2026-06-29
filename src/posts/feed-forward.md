@@ -1,7 +1,7 @@
 ---
 title: Feedforward Control
 panelCategory: "Control"
-date: 2026-03-28
+date: 2026-05-22
 description: A practical guide to feedforward control for FTC mechanisms.
 tags: [completed, software, intermediate, control, completed]
 author: Ishaan Desai
@@ -12,7 +12,7 @@ published: true
     import FeedforwardVisualizer from '$lib/components/FeedforwardVisualizer.svelte';
 </script>
 
-Feedforward control is a pro-active way of controlling mechanisms. Unlike PID, which reacts to errors, Feedforward uses a model of the physical system to pre-calculate the power needed to achieve a specific movement.
+Feedforward control is about being proactive instead of reactive. PID watches what your mechanism is doing wrong and corrects it after the fact. Feedforward looks at what you want the mechanism to do and pre-calculates the power needed to make it happen, before any error builds up.
 
 <div class="tuner-callout">
     <p> <strong>Try our <a href="/simulators/feedforward">Feedforward + PID Simulator</a></strong> for a deeper understanding of Feedforward!</p>
@@ -20,34 +20,32 @@ Feedforward control is a pro-active way of controlling mechanisms. Unlike PID, w
 
 <FeedforwardVisualizer />
 
-## Why use Feedforward?
+## Why Use Feedforward?
 
-With PID alone, if you have gravity or friction (like an arm or linear slide), the mechanism will likely sag or drop. You would have to use a high K_i to compensate, which makes the robot slower to respond.
+Think about an arm or a linear slide. Gravity is constantly pulling it down. If you only use PID, the mechanism will sag below your target position until the error gets large enough for the integral term to compensate. That lag is annoying and it makes the robot feel slow and imprecise.
 
-Feedforward calculates the exact amount of power needed to maintain a certain position (against gravity) or speed (against friction).
+Feedforward solves this by directly accounting for the forces your mechanism has to fight. Instead of waiting for the arm to droop, you just add a constant amount of power to hold it up. The PID then handles the small corrections on top of that.
 
-### 1. Velocity Feedforward (K_v)
+## The Three Feedforward Terms
 
-This is the amount of power needed per unit of velocity.
+There are three feedforward components you will encounter in FTC. You probably will not need all three for every mechanism, but it helps to know what each one does.
 
-- **Output** = _K_v_ × **target velocity**
+**Velocity Feedforward (K_v)** is the amount of power needed per unit of velocity. If you want your mechanism to move at a specific speed, multiply your target velocity by K_v to get close to the right power output.
 
-### 2. Static Friction Feedforward (K_s)
+- Output = K_v x target velocity
 
-This is the "voltage jump" needed to overcome friction and get the robot moving.
+**Static Friction Feedforward (K_s)** is the minimum power needed to get your mechanism moving at all. Friction acts against motion, so you need a baseline "kick" to overcome it before any velocity feedforward takes effect.
 
-- **Output** = _K_s_ (sign stays consistent with direction)
+- Output = K_s (applied in the direction of motion)
 
-### 3. Gravity Feedforward (K_g)
+**Gravity Feedforward (K_g)** is the one most FTC teams actually need. For a linear slide, gravity pulls down with a constant force, so K_g is a constant power offset. For a rotating arm, the gravitational load changes with the arm's angle, so you multiply by the cosine of the angle.
 
-Crucial for arms and slides.
-
-- **For a linear slide:** Constant K_g to hold the weight.
-- **For a rotating arm:** K_g × cos(θ) where θ is the arm's angle.
+- Linear slide: Output = K_g
+- Rotating arm: Output = K_g x cos(angle)
 
 ## Implementation in FTC
 
-Here is how you can implement a standard Feedforward calculation for a linear slide:
+Here is a feedforward class for a linear slide. It takes all four possible terms and calculates the total power output.
 
 ```java
 public class SlideFeedforward {
@@ -66,9 +64,9 @@ public class SlideFeedforward {
 }
 ```
 
-## Combined PID and Feedforward
+## Combining PID and Feedforward
 
-In a real FTC robot, you should use **PID + Feedforward**. The Feedforward does the "heavy lifting" by getting you near the target, and the PID handles the small corrections.
+In practice, you almost always run PID and feedforward together. Feedforward does the heavy lifting by getting the mechanism close to the right output. PID then handles the small remaining error.
 
 ```java
 double ff_power = feedforward.calculate(target_vel, target_accel);
@@ -77,6 +75,10 @@ double pid_power = pid.calculate(current_position);
 motor.setPower(ff_power + pid_power);
 ```
 
+This combination is faster to respond than PID alone and does not need a large I gain to hold position against gravity.
+
 ## Tuning Feedforward
 
-If your robot has Roadrunner or Pedro Pathing, they come with built-in tuning tools for K_s and K_v for the drivetrain. For your custom mechanisms, start with K_s (the minimum power to move the mechanism), then K_v (the relation between power and steady velocity), and finally K_g (the power to hold it still).
+Start with K_s: slowly increase it until the mechanism just barely starts to move. That is your static friction threshold. Then work on K_v by running the mechanism at a constant speed and adjusting until the actual speed matches your target. Finally, tune K_g by finding the power needed to hold the mechanism still at your target position.
+
+If your robot uses Road Runner or Pedro Pathing, those libraries have built-in tuning routines for the drivetrain's feedforward terms. For your custom mechanisms, you tune them manually as described above.

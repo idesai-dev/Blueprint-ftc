@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 panelCategory: "Basics"
-date: 2026-03-28
+date: 2026-05-15
 description: Welcome to FTC! This guide walks you through the absolute basics of getting started with the competition.
 tags: [completed, rookie guide, beginner]
 author: Ishaan Desai
@@ -10,36 +10,38 @@ published: true
 
 # Getting Started
 
-Welcome to the world of FIRST Tech Challenge (FTC)! Whether you are a rookie team or an experienced member looking for a refresher, this guide will walk you through the first steps of your journey.
+So you just joined an FTC team. Maybe you've never touched a robot before, or maybe you've been tinkering with electronics for years. Either way, welcome. This guide is here to help you get your bearings before the chaos of build season kicks in.
 
 ---
 
 ## What is FTC?
 
-FIRST Tech Challenge is a global robotics competition where teams of middle and high school students design, build, and program robots to compete in an alliance format. It's more than just robots-it's about teamwork, innovation, and "Gracious Professionalism."
+FIRST Tech Challenge is a robotics competition for middle and high school students. Every season, teams design, build, and program robots to complete a specific game, then compete in alliances against other teams. The game changes every year, so there's always something new to figure out.
+
+What makes FTC stand out is that it's not just about winning. The program puts a huge emphasis on what they call "Gracious Professionalism," which basically means competing hard while treating everyone around you with respect. You'll see it in action at tournaments, and it makes the whole experience a lot more fun.
 
 ---
 
 ## Your First Steps
 
 ### 1. The Kit of Parts
-Every team starts with a kit of parts (like REV or goBILDA). Familiarize yourself with the motors, sensors, and structural components.
+
+Most teams start with a kit from REV Robotics or goBILDA. These kits give you motors, servos, structural beams, and mounting hardware to build your robot. Spend some time handling the parts and understanding how they connect before you try to build anything.
 
 ### 2. The Control System
-The brain of your robot is the **Control Hub**. You will program it using a computer and communicate with it via a **Driver Station** (usually a specialized Android phone or another Control Hub).
+
+The **Control Hub** is the brain of your robot. Your code runs on it, it talks to your motors and sensors, and it connects wirelessly to the **Driver Station** during a match. The Driver Station is usually a specialized Android device or a second Control Hub. Think of the Control Hub as the server and the Driver Station as the remote control.
 
 ### 3. Programming
-While you can use blocks, we highly recommend learning **Java**. Java gives you the ultimate control over your robot's sensors and movements.
+
+The FTC SDK supports a block-based coding environment, but honestly, you'll want to learn **Java**. Blocks are fine for a quick prototype, but Java gives you the flexibility to write real autonomous routines, use libraries like Road Runner, and actually understand what your robot is doing. Don't be intimidated by it. You'll pick it up faster than you expect.
 
 ---
 
 ## Essential Resources
 
-- **The Game Manual:** Read it. Then read it again. It contains all the rules for the season.
-- **FTC Discord:** A great place to ask questions and learn from the community.
-- **Blueprint Documentation:** (You're here!) Use our guides to master software and hardware.
+There are a few things you should bookmark right now. The **Game Manual** is the rulebook for the current season. Read it early and read it carefully. It tells you what your robot can and can't do, and ignoring it can get you disqualified at a tournament. The **FTC Discord** is where a huge chunk of the community hangs out. If you have a question, someone there has probably already answered it. And of course, these Blueprint guides are here to walk you through the software side of things in detail.
 
 ---
 
-### Tip
-> **Don't panic!** Robotics is hard, but everyone starts somewhere. Start simple, get a basic robot moving, and iterate from there.
+> Don't panic if things feel overwhelming at first. Every experienced FTC programmer was once staring at a blank project wondering where to start. Get a basic robot moving, then build from there.

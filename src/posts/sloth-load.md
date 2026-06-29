@@ -1,12 +1,16 @@
 ---
 title: Sloth Load
 panelCategory: "Miscellaneous"
-date: 2026-03-28
+date: 2026-06-03
 description: High-speed code deployment and hot-reloading for FTC using Sloth.
 tags: [completed, software, beginner, tools]
 author: Ishaan Desai
 published: true
 ---
+
+<div style="padding: 0.9rem 1.4rem; background: rgba(114, 178, 204, 0.07); border-left: 4px solid var(--accent-cyan); border-radius: 6px; margin-bottom: 1.5rem; font-size: 0.93rem;">
+For more detailed information, visit the <a href="https://github.com/Dairy-Foundation" target="_blank" rel="noopener">Dairy Foundation GitHub</a>.
+</div>
 
 # Sloth Load
 

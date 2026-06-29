@@ -87,7 +87,9 @@
 				</div>
 				<PortfolioReview />
 			</div>
-			<SectionSidebar contentSelector=".prose" />
+			<div class="sidebar-stretch">
+				<SectionSidebar contentSelector=".prose" />
+			</div>
 		</div>
 	</div>
 
@@ -207,6 +209,10 @@
 		width: 60px;
 		opacity: 0.6;
 		margin-top: 0.5rem;
+	}
+
+	.sidebar-stretch {
+		align-self: stretch;
 	}
 
 	/* Body */

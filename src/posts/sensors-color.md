@@ -1,23 +1,20 @@
 ---
 title: Color Sensor
 panelCategory: "Sensors"
-date: 2026-04-05
+date: 2026-05-06
 description: How to read RGB and HSV values from the REV Color Sensor.
 tags: ["software", "completed", "beginner"]
 author: Ishaan Desai
 published: true
 ---
 
-# Color Sensor Basics
-
-The color sensor (most common being the REV Color/Range Sensor) allows your robot to detect colors, light levels, and even proximity. This is essential for detecting team props, game pieces, or tape on the field.
-
-### Tip
-> **Why use a Color Sensor?** Beyond just "seeing" color, these sensors are great for identifying the orientation of objects or ensuring a robot has correctly grabbed a specific game piece.
+The REV Color/Range Sensor is one of those sensors that seems niche but ends up being useful in a lot of situations. You can use it to detect team props, check if a game piece made it into your intake, or identify colored tape on the field. It can even double as a short-range distance sensor, which is a nice bonus.
 
 ---
 
-Add the sensor to your hardware map using the `NormalizedColorSensor` class. This interface is recommended because it provides consistent values (0.0 to 1.0) regardless of the sensor's internal resolution.
+## Setting It Up
+
+Use the `NormalizedColorSensor` class. The "normalized" part means your RGB values come back as decimals between 0.0 and 1.0, which makes them consistent regardless of whatever the sensor's internal resolution happens to be.
 
 ```java
 import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
@@ -26,7 +23,7 @@ import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 NormalizedColorSensor colorSensor = hardwareMap.get(NormalizedColorSensor.class, "colorSensor");
 ```
 
-Read the colors into a `NormalizedRGBA` object.
+Reading colors is simple. You grab a `NormalizedRGBA` object and pull individual channel values off of it.
 
 ```java
 NormalizedRGBA colors = colorSensor.getNormalizedColors();
@@ -36,32 +33,33 @@ telemetry.addData("Green", "%.3f", colors.green);
 telemetry.addData("Blue", "%.3f", colors.blue);
 ```
 
-## 3. Detecting Specific Colors
+## Detecting Specific Colors
 
-Comparing raw RGB values can be tricky because lighting conditions change. A common technique is to check which value is the highest.
+The simplest approach is to just check which channel has the highest value. If red is bigger than blue and green, you are probably looking at something red.
 
 ```java
-if (red > blue && red > green) {
+if (colors.red > colors.blue && colors.red > colors.green) {
     telemetry.addData("Color", "Red Detected");
-} else if (blue > red && blue > green) {
+} else if (colors.blue > colors.red && colors.blue > colors.green) {
     telemetry.addData("Color", "Blue Detected");
 }
 ```
 
-For more reliable color detection, it's recommended to convert your RGB values into **HSV** (Hue, Saturation, Value).
+This works, but it breaks down under different lighting conditions. A much better approach is to convert your RGB values to HSV (Hue, Saturation, Value). The hue channel gives you a number on a color wheel, which stays pretty stable even when the lighting changes.
 
 ```java
-float hsvValues[] = {0F, 0F, 0F};
+float[] hsvValues = {0F, 0F, 0F};
 NormalizedRGBA colors = colorSensor.getNormalizedColors();
 Color.colorToHSV(colors.toColor(), hsvValues);
 
 telemetry.addData("Hue", hsvValues[0]);
 ```
-*Tip: Red is usually around 0 or 360, Blue is around 240, and Yellow is around 60.*
 
-## 5. Built-in Distance Sensing
+A quick reference for common hue values: red is around 0 or 360, yellow is around 60, and blue is around 240.
 
-Many color sensors (like the REV V3) also function as distance sensors. This is great for "Check if a piece is in the intake" logic.
+## Built-in Distance Sensing
+
+Many REV color sensors (including the V3) can also measure distance. This is super handy for detecting whether a game piece is in your intake. Just cast the sensor to a `DistanceSensor` and call `getDistance()`.
 
 ```java
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
@@ -71,6 +69,8 @@ telemetry.addData("Distance (cm)", "%.2f", distance);
 ```
 
 ---
+
+Here is a full example that combines color detection and distance sensing. It only reports a color detection if something is within 5 cm, which cuts down on false positives from objects across the room.
 
 ```java
 package org.firstinspires.ftc.teamcode;
@@ -102,13 +102,13 @@ public class ColorSensorExample extends LinearOpMode {
             NormalizedRGBA colors = colorSensor.getNormalizedColors();
             
             // 2. Convert to HSV
-            float hsvValues[] = {0F, 0F, 0F};
+            float[] hsvValues = {0F, 0F, 0F};
             Color.colorToHSV(colors.toColor(), hsvValues);
             
             // 3. Read distance
             double dist = ((DistanceSensor) colorSensor).getDistance(DistanceUnit.CM);
 
-            // 4. Detection Logic
+            // 4. Detection logic
             String detected = "NONE";
             if (dist < 5.0) {
                 if (hsvValues[0] < 30 || hsvValues[0] > 330) {
@@ -129,5 +129,4 @@ public class ColorSensorExample extends LinearOpMode {
 
 ---
 
-> **Lighting:** The REV Color Sensor has a built-in LED. You can turn it on or off using `colorSensor.enableLed(true)`. This is helpful for surface detection but might interfere with detecting distant objects.
-
+> **LED Control:** The REV Color Sensor has a built-in LED. You can toggle it with `colorSensor.enableLed(true)`. Turning it on helps a lot for surface detection since it removes ambient lighting variation, but it can interfere if you are trying to detect objects that are farther away.

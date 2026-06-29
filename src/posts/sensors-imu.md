@@ -1,28 +1,24 @@
 ---
 title: Universal IMU Guide
 panelCategory: "Sensors"
-date: 2026-04-05
+date: 2026-05-14
 description: Using the modern, hub-agnostic IMU interface for robot orientation.
 tags: [software, completed, beginner]
 author: Ishaan Desai
 published: true
 ---
 
-# Universal IMU Guide
+The IMU (Inertial Measurement Unit) is one of the most useful sensors built into the REV Control Hub. It combines a gyroscope (which tracks rotation) and an accelerometer (which tracks acceleration) to give your robot a sense of where it is pointing in 3D space. The most common use in FTC is reading the yaw angle, which tells you which direction your robot is facing.
 
-The Inertial Measurement Unit (IMU) is one of the most important sensors on your robot. It combines a **Gyroscope** (measuring rotation) and an **Accelerometer** (measuring acceleration) to help your robot understand its orientation in 3D space.
-
-In modern FTC (SDK 8.0+), we use the universal `IMU` interface, which works across all REV Control Hub and Expansion Hub versions.
+Since SDK 8.0, FTC uses a universal `IMU` interface that works across all REV hub versions. If you have seen older code using `BNO055IMU`, that is the old way. This guide covers the modern approach.
 
 ---
 
-## 1. Defining Orientation
+## Defining Hub Orientation
 
-Before initializing the IMU, you must tell the software how the Control Hub is mounted on your robot. This is done using `RevHubOrientationOnRobot`.
+Before the IMU can give you correct angles, you need to tell it how the Control Hub is physically mounted on your robot. The software needs to know this so it can rotate the sensor readings to match your robot's frame.
 
-You need to specify:
-1. **Logo Direction**: Which way the REV logo on the hub is facing (UP, DOWN, FORWARD, etc.)
-2. **USB Direction**: Which way the USB ports on the hub are facing.
+You do this with `RevHubOrientationOnRobot`. You specify two things: which direction the REV logo on the hub is facing, and which direction the USB ports are facing.
 
 ```java
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
@@ -39,12 +35,11 @@ IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
 imu.initialize(parameters);
 ```
 
-## 2. Reading Angles (Yaw, Pitch, Roll)
+If you get weird or flipped angle readings during testing, the orientation is probably set wrong. Double-check which direction the logo and USB ports are actually pointing on your robot.
 
-The IMU provides three primary angles:
-- **Yaw**: The direction the robot is facing (Heading). This is the most used angle for driving straight or turning.
-- **Pitch**: The "tilt" of the robot (front-to-back).
-- **Roll**: The "side-to-side" tilt.
+## Reading Yaw, Pitch, and Roll
+
+The IMU gives you three angles. Yaw is the one you will use most often since it tells you which direction the robot is facing (the heading). Pitch is the front-to-back tilt, and roll is the side-to-side tilt.
 
 ```java
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -52,16 +47,16 @@ import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
 
 YawPitchRollAngles angles = imu.getRobotYawPitchRollAngles();
 
-double yaw = angles.getYaw(AngleUnit.DEGREES);
+double yaw   = angles.getYaw(AngleUnit.DEGREES);
 double pitch = angles.getPitch(AngleUnit.DEGREES);
-double roll = angles.getRoll(AngleUnit.DEGREES);
+double roll  = angles.getRoll(AngleUnit.DEGREES);
 
 telemetry.addData("Yaw (Heading)", "%.2f", yaw);
 ```
 
-## 3. Resetting the Heading
+## Resetting the Heading
 
-When your OpMode starts, the IMU's Yaw is set to 0 based on the robot's current position. If you want to "re-zero" the robot (e.g., in a field-centric drive system), use:
+When your OpMode starts, yaw is automatically set to 0 based on the robot's starting position. If you want to re-zero the heading mid-match (useful in field-centric drive), just call:
 
 ```java
 imu.resetYaw();
@@ -69,9 +64,12 @@ imu.resetYaw();
 
 ---
 
-## Full Example: Field-Centric Heading
+> [!CAUTION]
+> Initialize the IMU before `waitForStart()`, and make sure the robot is sitting still while it initializes. Moving the robot during IMU initialization can cause drift or incorrect readings that persist throughout your match.
 
-This example shows how to initialize the IMU and read the Yaw for use in a basic heading-display OpMode.
+---
+
+Here is a full example that initializes the IMU and reads the yaw heading each loop. Press A on the gamepad to reset the yaw to zero.
 
 ```java
 package org.firstinspires.ftc.teamcode;
@@ -92,8 +90,7 @@ public class IMUExample extends LinearOpMode {
         // 1. Initialize IMU
         imu = hardwareMap.get(IMU.class, "imu");
 
-        // 2. Configure Orientation
-        // Change these to match your hub's mounting!
+        // 2. Configure orientation -- change these to match your hub's mounting!
         IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
                 RevHubOrientationOnRobot.LogoFacingDirection.UP,
                 RevHubOrientationOnRobot.UsbFacingDirection.FORWARD
@@ -107,12 +104,12 @@ public class IMUExample extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            // 3. Reset Yaw if 'A' is pressed
+            // 3. Reset yaw if 'A' is pressed
             if (gamepad1.a) {
                 imu.resetYaw();
             }
 
-            // 4. Read Heading
+            // 4. Read heading
             double yaw = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES);
 
             telemetry.addData("Heading", "%.2f degrees", yaw);
@@ -122,8 +119,3 @@ public class IMUExample extends LinearOpMode {
     }
 }
 ```
-
----
-
-> [!CAUTION]
-> **Initialization Time:** It is best to initialize the IMU in the `init` section of your OpMode (before `waitForStart`). Moving the robot during IMU initialization can cause drift or incorrect readings. Ensure the robot is stationary while the code is initializing!

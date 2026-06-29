@@ -1,24 +1,20 @@
 ---
 title: Distance Sensor
 panelCategory: "Sensors"
-date: 2026-04-05
+date: 2026-05-10
 description: How to use a distance sensor
 tags: [software, completed, beginner]
 author: Ishaan Desai
 published: true
 ---
 
-# Distance Sensor Guide
-
-Distance sensors (like the REV 2m Distance Sensor) use "Time of Flight" (TOF) technology to measure how far away an object is by bouncing an infrared beam off it.
-
-> **Accuracy:** TOF sensors are extremely precise (within millimeters) but have a limited range (usually up to 2 meters). They are much faster and more reliable than older ultrasonic sensors.
+The REV 2m Distance Sensor uses time-of-flight (TOF) technology. It fires a tiny infrared pulse and measures how long it takes to bounce back. The result is a very accurate distance reading, often within a few millimeters, up to about 2 meters away. Compared to old ultrasonic sensors, TOF sensors are faster and much less prone to interference.
 
 ---
 
-## 1. Initialization
+## Setting It Up
 
-You need both the `DistanceSensor` class and the `DistanceUnit` utility.
+You need the `DistanceSensor` class and the `DistanceUnit` utility to request readings in whatever unit you prefer.
 
 ```java
 import com.qualcomm.robotcore.hardware.DistanceSensor;
@@ -27,9 +23,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 DistanceSensor distanceSensor = hardwareMap.get(DistanceSensor.class, "distanceSensor");
 ```
 
-## 2. Reading Distance
+## Reading Distance
 
-You can request the distance in various units (Inches, CM, MM).
+You can get the distance in inches, centimeters, or millimeters by passing the unit you want into `getDistance()`.
 
 ```java
 double distanceInches = distanceSensor.getDistance(DistanceUnit.INCH);
@@ -39,19 +35,21 @@ telemetry.addData("Distance (in)", "%.2f", distanceInches);
 telemetry.update();
 ```
 
-## 3. Practical Use Cases
+## What Can You Actually Use It For?
 
-- **Wall Alignment:** Use two distance sensors (one on the front-left, one on the front-right) to ensure your robot is perfectly parallel to a wall. If both sensors read the same distance, you are straight!
-- **Intake Detection:** Place a sensor inside your intake to automatically stop the motor once a game piece is captured.
-- **Auto Navigation:** Detect if another robot is blocking your path during autonomous.
-- **Automatic Braking:** If you are driving towards a wall at high speed, the robot can automatically slow down or stop when it gets within a certain distance.
+Distance sensors are more versatile than people think. Here are a few practical uses:
 
-### Tip
-> **Avoiding Interference:** If you use multiple TOF sensors facing the same direction, they can sometimes "confuse" each other's infrared beams. Try to angle them slightly away from each other or read them sequentially if you encounter "jittery" data.
+- **Wall alignment:** Mount one sensor on each side of your robot's front. If both read the same distance, you are squared up to the wall. If they differ, you are crooked.
+- **Intake detection:** Put a sensor inside your intake. When a game piece gets close, stop the intake motor automatically.
+- **Auto navigation:** Detect if another robot or obstacle is blocking your path during autonomous.
+- **Automatic braking:** If your robot is driving toward a wall at full speed, cut power automatically when the sensor reads below a threshold.
+
+> [!NOTE]
+> If you use multiple TOF sensors aimed in the same direction, their infrared beams can interfere with each other and cause jittery readings. Try angling them slightly away from each other, or read them one at a time in sequence if you run into that problem.
 
 ---
 
-This example shows how to use the Distance Sensor to "auto-brake." The robot will stop the motor if it gets too close to an object.
+Here is a complete example that implements auto-braking. The robot reads joystick input normally, but if the sensor detects something within 5 inches, forward movement is blocked.
 
 ```java
 package org.firstinspires.ftc.teamcode;
@@ -66,7 +64,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 public class DistanceSensorExample extends LinearOpMode {
 
     private DistanceSensor distanceSensor;
-    private DcMotor driveMotor; // Example motor to control
+    private DcMotor driveMotor;
 
     @Override
     public void runOpMode() {
@@ -85,13 +83,13 @@ public class DistanceSensorExample extends LinearOpMode {
             // 2. Drive logic with safety check
             double drivePower = -gamepad1.left_stick_y;
             
-            // If we are closer than 5 inches, don't allow forward movement
+            // If we are closer than 5 inches, block forward movement
             if (distanceInches < 5.0 && drivePower > 0) {
-                 driveMotor.setPower(0);
-                 telemetry.addData("Safety", "WALL DETECTED - BRAKING");
+                driveMotor.setPower(0);
+                telemetry.addData("Safety", "WALL DETECTED - BRAKING");
             } else {
-                 driveMotor.setPower(drivePower);
-                 telemetry.addData("Safety", "Clear");
+                driveMotor.setPower(drivePower);
+                telemetry.addData("Safety", "Clear");
             }
 
             // 3. Telemetry output
@@ -104,6 +102,4 @@ public class DistanceSensorExample extends LinearOpMode {
 
 ---
 
-### Tip
-> **Material Matters:** TOF sensors can struggle with very dark materials (which absorb light) or highly reflective/transparent materials (like plexiglass or field perimeter glass). Always test with the specific material you intend to detect!
-
+> **Material Matters:** TOF sensors can struggle with very dark materials (which absorb the IR light) or highly reflective or transparent materials like plexiglass. Always test the sensor against the actual surface you plan to detect during build and tuning.

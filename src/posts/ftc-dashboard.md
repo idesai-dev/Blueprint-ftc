@@ -1,12 +1,16 @@
 ---
 title: FTC Dashboard & Live PID Tuning
-date: 2026-04-05
+date: 2026-06-01
 panelCategory: "Miscellaneous"
 description: Tune your robot's PID controller in real time using FTC Dashboard - No rebuilding required
 tags: ["intermediate", "pid", "dashboard", "completed", "software"]
 author: Ishaan Desai
 published: true
 ---
+
+<div style="padding: 0.9rem 1.4rem; background: rgba(114, 178, 204, 0.07); border-left: 4px solid var(--accent-cyan); border-radius: 6px; margin-bottom: 1.5rem; font-size: 0.93rem;">
+For more detailed information, visit the <a href="https://acmerobotics.github.io/ftc-dashboard/" target="_blank" rel="noopener">official FTC Dashboard documentation</a>.
+</div>
 
 # FTC Dashboard & PID Live Tuning
 
