@@ -194,8 +194,8 @@
 	.btn-submit {
 		width: 100%;
 		padding: 0.85rem;
-		background: var(--accent-cyan);
-		color: white;
+		background: var(--accent-green);
+		color: #151515;
 		border: none;
 		border-radius: var(--radius-md);
 		font-weight: 700;

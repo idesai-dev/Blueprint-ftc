@@ -432,10 +432,12 @@ html.light .prose pre {
 	background: transparent !important;
 	padding: 0 !important;
 	border: none !important;
-	font-size: 0.9rem;
-	line-height: 1.7;
+	font-size: 0.8125rem;
+	line-height: 1.5;
 	color: #A9B7C6;
 	font-family: var(--font-mono);
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 html.light .prose pre code {
@@ -446,19 +448,6 @@ html.light .prose pre code {
 	.prose pre,
 	.prose pre[class*='language-'] {
 		padding: 1rem 1.25rem;
-		font-size: 0.82rem;
-	}
-
-	.prose pre code {
-		font-size: 0.82rem;
-	}
-
-	.prose code:not(pre code),
-	.prose p code,
-	.prose li code,
-	.prose blockquote code,
-	.prose :not(pre) > code {
-		font-size: 0.82em !important;
 	}
 }
 
@@ -504,6 +493,9 @@ html.light .prose pre code {
 	margin-left: -0.5rem;
 	border-radius: 4px;
 	transition: background-color var(--transition-fast);
+	font-size: inherit;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 .code-line:hover {
