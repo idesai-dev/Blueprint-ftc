@@ -8,7 +8,7 @@ tags: [software, completed]
 author: Blueprint
 ---
 
-The goBILDA Pinpoint Odometry Computer is a small I2C device that gives your robot a very accurate sense of where it is on the field. Instead of guessing position from motor encoders (which slip and drift), the Pinpoint reads from two dedicated deadwheel pods - one for forward/back motion and one for left/right motion. It combines those readings and gives you X position, Y position, and heading all in one place.
+The goBILDA Pinpoint Odometry Computer is a small I2C device that gives your robot a very accurate sense of where it is on the field. Instead of guessing position from motor encoders (which slip and drift), the Pinpoint reads from two dedicated deadwheel pods, one for forward/back motion and one for left/right motion. It combines those readings and gives you X position, Y position, and heading all in one place.
 
 ## Why Use It?
 
@@ -59,7 +59,7 @@ public void init() {
 
 ## Pod Offsets
 
-The offsets tell the Pinpoint how far each pod is from the robot's center of rotation. Measure this in millimeters. The X offset is how far the side-to-side pod sits forward or back from center, and the Y offset is how far the forward/back pod sits left or right from center. Getting these right matters - bad offsets cause your heading to drift when you spin in place.
+The offsets tell the Pinpoint how far each pod is from the robot's center of rotation. Measure this in millimeters. The X offset is how far the side-to-side pod sits forward or back from center, and the Y offset is how far the forward/back pod sits left or right from center. Getting these right matters. Bad offsets cause your heading to drift when you spin in place.
 
 ## Reading Position
 

@@ -1,73 +1,18 @@
 <script lang="ts">
-	import BlogCard from '$lib/components/BlogCard.svelte';
 	import type { Post } from '$lib/utils/posts';
-	import { tagColor } from '$lib/utils/posts';
-	import Collapsible from '$lib/components/Collapsible.svelte';
-	import FilterBar from '$lib/components/FilterBar.svelte';
 	import HardwareLeftSidebar from '$lib/components/HardwareLeftSidebar.svelte';
-	import { devModeState, initDevMode } from '$lib/stores/devMode.svelte';
-	import { onMount } from 'svelte';
+	import DocIndex from '$lib/components/DocIndex.svelte';
 
 	let { data }: { data: { posts: Post[] } } = $props();
 
-	onMount(() => {
-		initDevMode();
-	});
-
-	let searchQuery = $state('');
-	let activeTags = $state<string[]>([]);
-
-	const allTags = $derived([...new Set(data.posts.flatMap((p) => p.meta.tags || []))]);
-
-	const completedSlugs = $derived(data.posts.filter((p) => (p.meta.tags || []).includes('completed')).map((p) => p.slug));
-	const completedCount = $derived(data.posts.filter((p) => (p.meta.tags || []).includes('completed')).length);
-	const showLink = (href: string) => devModeState.active || completedSlugs.includes(href.split('/').pop() || '');
-	const showGroup = (hrefs: string[]) => hrefs.some(showLink);
-
-	const visiblePosts = $derived(
-		data.posts.filter((p) => {
-			if (devModeState.active) return true;
-			return p.meta.published !== false;
-		})
-	);
-
-	// Filtered posts (search + tag filters on top of visibility)
-	const filteredPosts = $derived(
-		visiblePosts.filter((p) => {
-			const matchSearch =
-				!searchQuery ||
-				p.meta.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				(p.meta.description || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-				(p.meta.tags || []).some(
-					(t) => typeof t === 'string' && t.toLowerCase().includes(searchQuery.toLowerCase())
-				);
-
-			const postTags = (p.meta.tags || []).map((tag) =>
-				typeof tag === 'string' ? tag.toLowerCase().trim() : ''
-			);
-
-			const matchTag =
-				activeTags.length === 0 ||
-				activeTags.every((t) => {
-					const lowerT = t.toLowerCase();
-					if (lowerT === 'novideo') return !postTags.includes('video');
-					if (lowerT === 'not_completed') return !postTags.includes('completed');
-					return postTags.includes(lowerT);
-				});
-
-			// Default: only show completed if no status filter is active
-			const statusTags = ['completed', 'not_completed', 'coming soon'];
-			const hasStatusFilter = activeTags.some(t => statusTags.includes(t.toLowerCase()));
-			const matchStatusDefault = hasStatusFilter || postTags.includes('completed') || devModeState.active;
-
-			return matchSearch && matchTag && matchStatusDefault;
-		})
+	const completedCount = $derived(
+		data.posts.filter((p) => (p.meta.tags || []).includes('completed')).length
 	);
 </script>
 
 <svelte:head>
 	<title>Hardware | Blueprint</title>
-	<meta name="description" content="All Hardware guides and prints published on Blueprint." />
+	<meta name="description" content="FTC hardware documentation: CAD, drivetrains, mechanisms, wiring, and weight." />
 </svelte:head>
 
 <div class="directory-container">
@@ -75,50 +20,18 @@
 		<HardwareLeftSidebar mode="section" />
 		<div class="content-feed">
 			<section class="blog-header">
-				<div class="blog-header-inner animate-fade-up">
+				<div class="blog-header-inner">
 					<div class="header-text">
-	
-						<h1>The Hardware Guide</h1>
-						<p class="sub">
-							{completedCount} article{completedCount !== 1 ? 's' : ''}
-						</p>
+						<h1>Hardware</h1>
+						<p class="sub">{completedCount} article{completedCount !== 1 ? 's' : ''}</p>
 					</div>
-					<a href="/review?tab=cad" class="review-link">
-						Get a CAD Review →
-					</a>
+					<a href="/review?tab=cad" class="review-link">Get a CAD Review →</a>
 				</div>
 			</section>
 
-			<!-- Filters -->
-			<section class="filters-section">
-				<div class="container animate-fade-up" style="animation-delay:160ms">
-					<FilterBar category="hardware" bind:activeTags bind:searchQuery />
-				</div>
-			</section>
-
-			<!-- Post list -->
-			<section class="posts-section">
+			<section class="index-section">
 				<div class="container">
-					{#if filteredPosts.length > 0}
-						<div class="post-grid stagger">
-							{#each filteredPosts as post}
-								<BlogCard {post} basePath="/hardware" />
-							{/each}
-						</div>
-					{:else}
-						<div class="empty animate-fade-up">
-							<p>No posts match your search.</p>
-							<button
-								class="btn-reset"
-								onclick={() => {
-									searchQuery = '';
-									activeTags = [];
-								}}
-							>
-								Clear filters
-							</button>
-						</div>
-					{/if}
+					<DocIndex posts={data.posts} section="hardware" />
 				</div>
 			</section>
 		</div>
@@ -158,10 +71,9 @@
 	}
 
 	.blog-header {
-		padding: 2.5rem 3rem;
-		background: var(--gradient-hero);
+		padding: 2.25rem 3rem 1.75rem;
+		background: transparent;
 		border-bottom: 1px solid var(--border-subtle);
-		margin-bottom: 0;
 		width: 100%;
 	}
 
@@ -177,63 +89,27 @@
 	.header-text {
 		display: flex;
 		flex-direction: column;
-		gap: 0.8rem;
+		gap: 0.4rem;
 		flex: 1;
 		min-width: 300px;
 	}
 
-
-
 	h1 {
-		font-size: clamp(2.5rem, 5vw, 4rem);
-		line-height: 1.1;
-		margin: 0.5rem 0;
+		font-size: 1.9rem;
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		margin: 0;
 	}
+
 	.sub {
-		font-size: 0.85rem;
+		font-size: 0.8rem;
 		font-family: var(--font-mono);
 		color: var(--text-muted);
 	}
-	.filters-section {
-		padding: 1.5rem 0;
-		border-bottom: 1px solid var(--border-subtle);
-		background: transparent;
-		position: sticky;
-		top: var(--header-height);
-		z-index: 10;
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-	}
-	.posts-section {
+
+	.index-section {
 		padding: 2.5rem 0 5rem;
-	}
-	.post-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-		gap: 1.25rem;
-	}
-	.empty {
-		text-align: center;
-		padding: 4rem 1rem;
-		color: var(--text-muted);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-	}
-	.btn-reset {
-		padding: 0.5em 1.2em;
-		background: transparent;
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		color: var(--text-secondary);
-		font-size: 0.85rem;
-		cursor: pointer;
-		transition: all var(--transition-fast);
-	}
-	.btn-reset:hover {
-		border-color: var(--text-primary);
-		color: var(--text-primary);
 	}
 
 	.review-link {
@@ -253,6 +129,15 @@
 	.review-link:hover {
 		background: var(--bg-card-hover);
 		border-color: var(--text-primary);
-		transform: translateY(-1px);
+	}
+
+	@media (max-width: 640px) {
+		.blog-header {
+			padding: 1.75rem 1.5rem;
+		}
+
+		.header-text {
+			min-width: 0;
+		}
 	}
 </style>

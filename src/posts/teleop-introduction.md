@@ -126,6 +126,6 @@ A few tips:
 
 ## What Comes Next
 
-Now that you understand the structure of TeleOp, you are ready to write your first real driving code. The [TeleOp Beginner guide](/teleop-beginner) walks you through setting up a full mecanum drivetrain with gamepad controls, explaining the mecanum math, power normalization, and adding a slow mode button.
+Now that you understand the structure of TeleOp, you are ready to write your first real driving code. The [TeleOp Beginner guide](/software/teleop-beginner) walks you through setting up a full mecanum drivetrain with gamepad controls, explaining the mecanum math, power normalization, and adding a slow mode button.
 
-Once you are comfortable with basic driving, the [Finite State Machines guide](/teleop-fsm) shows you how to manage more complex behaviors like toggling a claw or moving a slide to preset positions, all without your code turning into a mess.
+Once you are comfortable with basic driving, the [Finite State Machines guide](/software/teleop-fsm) shows you how to manage more complex behaviors like toggling a claw or moving a slide to preset positions, all without your code turning into a mess.

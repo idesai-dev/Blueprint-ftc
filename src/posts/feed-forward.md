@@ -4,7 +4,7 @@ panelCategory: "Control"
 date: 2026-05-22
 description: A practical guide to feedforward control for FTC mechanisms.
 tags: [completed, software, intermediate, control, completed]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 
@@ -15,7 +15,7 @@ published: true
 Feedforward control is about being proactive instead of reactive. PID watches what your mechanism is doing wrong and corrects it after the fact. Feedforward looks at what you want the mechanism to do and pre-calculates the power needed to make it happen, before any error builds up.
 
 <div class="tuner-callout">
-    <p> <strong>Try our <a href="/simulators/feedforward">Feedforward + PID Simulator</a></strong> for a deeper understanding of Feedforward!</p>
+    <p>The <strong><a href="/simulators/feedforward">Feedforward + PID Simulator</a></strong> lets you see how feedforward and PID combine on a live mechanism.</p>
 </div>
 
 <FeedforwardVisualizer />

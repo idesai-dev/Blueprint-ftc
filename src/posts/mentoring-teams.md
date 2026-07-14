@@ -8,13 +8,13 @@ author: Blueprint
 published: true
 ---
 
-There is a big difference between helping a team out once and actually mentoring them. Casual support is great - answering a quick question at a competition, sharing a code snippet online, stopping by their pit to help debug something. But mentoring is something more. It means showing up consistently, understanding what the team is trying to accomplish, and helping them grow over the course of weeks or months. Done well, it is one of the most rewarding things your team can do.
+There is a big difference between helping a team out once and actually mentoring them. Casual support is great: answering a quick question at a competition, sharing a code snippet online, stopping by their pit to help debug something. But mentoring is something more. It means showing up consistently, understanding what the team is trying to accomplish, and helping them grow over the course of weeks or months. Done well, it is one of the most rewarding things your team can do.
 
 ## Casual Support vs. Formal Mentorship
 
-Casual support is low-commitment and high-value. You help when you can, share what you know, and move on. There is nothing wrong with this - it is how most inter-team help happens and it genuinely matters.
+Casual support is low-commitment and high-value. You help when you can, share what you know, and move on. There is nothing wrong with this. It is how most inter-team help happens and it genuinely matters.
 
-Formal mentorship involves a real commitment. You meet regularly - maybe every two weeks - you follow the other team's progress, you set goals with them, and you become a reliable resource they can count on. It requires more time and planning, but the impact is much deeper. When you mentor a team through an entire season, you see them grow in ways that casual help cannot produce.
+Formal mentorship involves a real commitment. You meet regularly (maybe every two weeks), you follow the other team's progress, you set goals with them, and you become a reliable resource they can count on. It requires more time and planning, but the impact is much deeper. When you mentor a team through an entire season, you see them grow in ways that casual help cannot produce.
 
 Before you commit to formal mentorship, be honest with your own team about whether you have the bandwidth. Overcommitting and then disappearing on a team you promised to support is worse than not mentoring at all.
 
@@ -22,13 +22,13 @@ Before you commit to formal mentorship, be honest with your own team about wheth
 
 ### The Initial Meeting
 
-Start with a conversation, not a lecture. Meet with the team - ideally including their coaches and student leaders - and just listen. What are they struggling with? What are their goals for the season? What have they already tried? What does their schedule look like?
+Start with a conversation, not a lecture. Meet with the team, ideally including their coaches and student leaders, and just listen. What are they struggling with? What are their goals for the season? What have they already tried? What does their schedule look like?
 
 This first meeting should be mostly you asking questions and taking notes. You are there to understand them, not to immediately start telling them what to do.
 
 ### Understanding What They Need
 
-Different teams need different things. A brand new rookie team might need help with the fundamentals - setting up their programming environment, understanding the game, learning how to run a meeting. A second-year team might have the basics down but want help improving their engineering notebook or getting more consistent autonomous performance.
+Different teams need different things. A brand new rookie team might need help with the fundamentals: setting up their programming environment, understanding the game, learning how to run a meeting. A second-year team might have the basics down but want help improving their engineering notebook or getting more consistent autonomous performance.
 
 Do not assume you know what they need. Ask. Then ask follow-up questions. The better you understand their specific situation, the more useful your mentorship will be.
 
@@ -62,7 +62,7 @@ Design mentorship works best when you ask questions about trade-offs rather than
 
 ### Engineering Notebook
 
-Many teams underestimate how much the notebook matters for judging. Help them understand what judges are looking for - documented decisions and their reasoning, iteration, testing data, and reflection. Show them examples of what a strong entry looks like and help them build the habit of documenting as they go, not all at once the night before a tournament.
+Many teams underestimate how much the notebook matters for judging. Help them understand what judges are looking for: documented decisions and their reasoning, iteration, testing data, and reflection. Show them examples of what a strong entry looks like and help them build the habit of documenting as they go, not all at once the night before a tournament.
 
 ### Award Preparation
 
@@ -86,8 +86,8 @@ First, it helps you track the team's progress over the season and plan what to f
 
 ## When You Do Not Know the Answer
 
-This will happen. You will get asked a question you cannot answer. That is completely fine - it is not a problem.
+This will happen. You will get asked a question you cannot answer. That is completely fine. It is not a problem.
 
-What matters is how you handle it. Do not guess and present it as fact. Instead, say "I am not sure, but let me look that up" or "I do not know off the top of my head - here is where I would go to find out." Then actually follow through. Modeling good problem-solving habits, including knowing when to look something up, is part of being a good mentor.
+What matters is how you handle it. Do not guess and present it as fact. Instead, say "I am not sure, but let me look that up" or "I do not know off the top of my head. Here is where I would go to find out." Then actually follow through. Modeling good problem-solving habits, including knowing when to look something up, is part of being a good mentor.
 
-You can also connect them with other resources - the FTC documentation, the FTC Discord, your own team's mentor or coach, or another experienced team. Knowing where to find good answers is a skill in itself, and helping them build that skill is just as valuable as answering their question directly.
+You can also connect them with other resources: the FTC documentation, the FTC Discord, your own team's mentor or coach, or another experienced team. Knowing where to find good answers is a skill in itself, and helping them build that skill is just as valuable as answering their question directly.

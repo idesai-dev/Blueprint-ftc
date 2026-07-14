@@ -14,9 +14,9 @@ AprilTags are one of the most useful tools in FTC autonomous programming. Once y
 
 An AprilTag is a small square marker with a unique black-and-white pattern inside it, kind of like a QR code. FTC places these tags on the field walls and game elements every season. Your robot's camera can spot these tags and instantly calculate useful information like how far away the tag is, what angle the robot is looking at it from, and how much the tag is rotated relative to the camera.
 
-Think of it like a street sign. When you see a stop sign, you know exactly what it means and where you are. AprilTags work the same way for your robot. The camera sees a tag, looks up its ID, and knows exactly what that tag represents on the field.
+Every tag has an ID number, and the field's tags are documented in the game manual, so once the camera reads an ID your code knows exactly which tag it is and where that tag sits on the field.
 
-The best part is that the FTC SDK handles all the heavy math for you. You just set up the camera, read the data, and use it in your code.
+The FTC SDK handles the math for you. You set up the camera, read the data it gives you, and use it in your code.
 
 ## What You Need
 

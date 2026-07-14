@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { formatDate, tagColor } from '$lib/utils/posts';
 	import type { PostMeta } from '$lib/utils/posts';
 	import type { Component } from 'svelte';
 	import { setupCopyButtons } from '$lib/utils/codeCopyButton';
@@ -68,25 +67,11 @@
 					{/each}
 				</nav>
 			</div>
-			<div class="post-meta animate-fade-up" style="animation-delay:60ms">
-				<time class="date" datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
-				{#if data.meta.author}
-					<span class="meta-sep">·</span>
-					<span class="author">{data.meta.author}</span>
-				{/if}
-			</div>
 			<h1 class="post-title animate-fade-up" style="animation-delay:120ms">{data.meta.title}</h1>
 			{#if data.meta.description}
 				<p class="post-description animate-fade-up" style="animation-delay:180ms">
 					{data.meta.description}
 				</p>
-			{/if}
-			{#if data.meta.tags && data.meta.tags.filter((t) => t.toLowerCase() !== 'completed').length > 0}
-				<div class="post-tags animate-fade-up" style="animation-delay:240ms">
-					{#each data.meta.tags?.filter((t) => t.toLowerCase() !== 'completed') ?? [] as tag}
-						<span class="tag {tagColor(tag)}">{tag}</span>
-					{/each}
-				</div>
 			{/if}
 			<div
 				class="title-rule animate-fade-up"
@@ -142,7 +127,7 @@
 		top: 0;
 		left: 0;
 		height: 3px;
-		background: var(--gradient-accent);
+		background: var(--accent-cyan);
 		z-index: 200;
 		transition: width 0.1s ease-out;
 	}
@@ -157,16 +142,6 @@
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
-	}
-	.header-orb {
-		position: absolute;
-		width: 600px;
-		height: 300px;
-		top: -150px;
-		right: -100px;
-		background: radial-gradient(ellipse, rgba(116, 215, 237, 0.08) 0%, transparent 60%);
-		border-radius: 50%;
-		filter: blur(40px);
 	}
 	.post-header .container {
 		position: relative;
@@ -194,20 +169,6 @@
 	.breadcrumbs .sep {
 		opacity: 0.3;
 	}
-	.post-meta {
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
-		font-size: 0.8rem;
-		font-family: var(--font-mono);
-		color: var(--text-muted);
-	}
-	.meta-sep {
-		opacity: 0.4;
-	}
-	.author {
-		color: var(--accent-green);
-	}
 	.post-title {
 		font-size: clamp(1.8rem, 5vw, 3rem);
 		line-height: 1.2;
@@ -219,23 +180,9 @@
 		max-width: 640px;
 		line-height: 1.65;
 	}
-	.post-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.4rem;
-		align-items: center;
-	}
-	.tag-add-circle {
-		display: inline-flex; align-items: center; justify-content: center;
-		width: 22px; height: 22px; border-radius: 50%;
-		background: rgba(116, 215, 237, 0.1); border: 1px dashed rgba(116, 215, 237, 0.5);
-		color: var(--accent-cyan); font-size: 1rem; font-weight: normal; font-family: var(--font-sans);
-		cursor: pointer; transition: all 0.2s; padding-bottom: 2px;
-	}
-	.tag-add-circle:hover { background: rgba(116, 215, 237, 0.2); border-color: var(--accent-cyan); transform: scale(1.05); }
 	.title-rule {
 		height: 2px;
-		background: var(--gradient-accent);
+		background: var(--accent-cyan);
 		border-radius: 2px;
 		width: 60px;
 		opacity: 0.6;

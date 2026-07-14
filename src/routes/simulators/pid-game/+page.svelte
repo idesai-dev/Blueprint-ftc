@@ -573,10 +573,10 @@
 				<div class="card">
 					<h3>3. The Constants</h3>
 					<ul>
-						<li><strong>P:</strong> Proportional to error — main driving force toward home.</li>
-						<li><strong>I:</strong> Integral of error — corrects steady-state offsets slowly.</li>
-						<li><strong>D:</strong> Derivative of error — damps oscillation like a brake.</li>
-						<li><strong>F:</strong> Feedforward — constant push to overcome static friction.</li>
+						<li><strong>P:</strong> Proportional to error, main driving force toward home.</li>
+						<li><strong>I:</strong> Integral of error, corrects steady-state offsets slowly.</li>
+						<li><strong>D:</strong> Derivative of error, damps oscillation like a brake.</li>
+						<li><strong>F:</strong> Feedforward: constant push to overcome static friction.</li>
 					</ul>
 				</div>
 				<div class="card">

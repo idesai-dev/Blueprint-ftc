@@ -12,9 +12,9 @@ Keeping an outreach journal might feel like extra homework, but it is one of the
 
 ## Why Documentation Matters
 
-When judges evaluate teams for awards like the Inspire Award or the Connect Award, they are looking for proof - not just a list of things you claim you did, but real evidence of consistent, meaningful outreach. A well-kept journal gives you that proof. It shows a pattern of effort over time, not just one big event thrown together before the tournament.
+When judges evaluate teams for awards like the Inspire Award or the Connect Award, they are looking for proof, not just a list of things you claim you did, but real evidence of consistent, meaningful outreach. A well-kept journal gives you that proof. It shows a pattern of effort over time, not just one big event thrown together before the tournament.
 
-Beyond awards, the journal helps your team reflect. After a demo at a school, it is easy to say "that went well" and move on. But if you write down what actually happened - what questions kids asked, what confused them, what made them light up - you will be a better presenter next time. Future team members can also read your journal and build on what past members learned.
+Beyond awards, the journal helps your team reflect. After a demo at a school, it is easy to say "that went well" and move on. But if you write down what actually happened (what questions kids asked, what confused them, what made them light up), you will be a better presenter next time. Future team members can also read your journal and build on what past members learned.
 
 ## What to Record for Each Event
 
@@ -52,13 +52,13 @@ Organize your photos by event. Store them in folders labeled by date and event n
 
 At the end of each semester or season, tally up your numbers. Judges love seeing this kind of data because it shows sustained effort and real reach.
 
-Track total people reached across all events. Count volunteer hours by multiplying team members present by hours spent at each event. Count the number of schools or organizations you visited. Track repeat events too - returning to the same school or community shows commitment, not just a one-time effort.
+Track total people reached across all events. Count volunteer hours by multiplying team members present by hours spent at each event. Count the number of schools or organizations you visited. Track repeat events too. Returning to the same school or community shows commitment, not just a one-time effort.
 
 Create a simple summary. Something like: "This season we ran 12 outreach events, reached over 300 students, logged 85 volunteer hours, and visited 6 different schools." That one sentence carries a lot of weight in an award submission.
 
 ## How to Organize Your Journal
 
-There are a few good ways to structure your entries. The most common is chronological - you write each entry as events happen throughout the season. This is easy to maintain and naturally shows your team's growth over time.
+There are a few good ways to structure your entries. The most common is chronological. You write each entry as events happen throughout the season. This is easy to maintain and naturally shows your team's growth over time.
 
 You can also organize by event type. Group all school visits together, all community events together, all online or social media content together. This works well if you want to highlight the range of your outreach.
 

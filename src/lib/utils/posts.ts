@@ -7,6 +7,7 @@ export interface PostMeta {
 	cover?: string;
 	published?: boolean;
 	wordCount?: number;
+	panelCategory?: string;
 }
 
 export interface Post {

@@ -28,7 +28,7 @@
 
 		{#if post.meta.tags && post.meta.tags.filter((t) => t.toLowerCase() !== 'completed').length > 0}
 			<div class="tags">
-				{#each post.meta.tags.filter((t) => t.toLowerCase() !== 'completed') as tag}
+				{#each post.meta.tags.filter((t) => t.toLowerCase() !== 'completed').slice(0, 3) as tag}
 					<span class="tag {tagColor(tag)}">{tag}</span>
 				{/each}
 			</div>
@@ -89,10 +89,10 @@
 	}
 
 	.card-inner {
-		padding: 1.6rem 1.75rem;
+		padding: 1.85rem 1.85rem;
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 0.9rem;
 	}
 
 	.card-meta {

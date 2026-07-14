@@ -30,7 +30,7 @@ The FTC season follows a predictable timeline every year:
 
 1. **Kickoff** (usually early September): The new game is revealed. This is the most exciting day of the season. Watch the reveal video and read the game manual carefully.
 2. **Build and practice season** (September through December): Your team builds the robot, writes code, and practices. Many regions hold scrimmages during this time where you can test your robot in a competition setting without it counting.
-3. **Qualifier tournaments** (October through January): Your first real competitions. Usually 4 to 8 teams per alliance, round-robin format. The top teams advance.
+3. **Qualifier tournaments** (October through January): Your first real competitions. Usually 20 to 40 teams attend, each playing several qualification matches solo to build a ranking. Top-ranked teams then captain 2-team alliances for elimination rounds, and the winning alliance advances.
 4. **Regional/State championships** (January through March): Qualifying teams compete at a higher level. The rules vary by region.
 5. **World Championship** (April): The best teams from around the world compete in Houston, Texas.
 
@@ -380,18 +380,18 @@ You are not on your own. The FTC community is genuinely one of the most helpful 
 
 **Blueprint guides to work through next:**
 
-- [Getting Started](/software/getting-started) - overview of the FTC ecosystem
-- [Android Studio Setup](/software/basics-android-studio) - full installation walkthrough
-- [Wiring and Configuration](/software/basics-wiring) - connecting hardware and naming devices
-- [Motors and Servos](/software/basics-motors-servos) - how to control your actuators
-- [Types of OpModes](/software/basics-types-of-opmodes) - LinearOpMode vs. OpMode explained
-- [Mecanum Drivetrain](/software/mecanum-drivetrain) - the full mecanum math
-- [TeleOp Introduction](/software/teleop-introduction) - how TeleOp works
-- [TeleOp Beginner](/software/teleop-beginner) - your first full driving program
-- [Finite State Machines](/software/teleop-fsm) - cleaner button handling with FSMs
-- [Encoder Autonomous Introduction](/software/encoder-autonomous-introduction) - distance-based autonomous
-- [Encoder Drivetrain Functions](/software/encoder-autonomous-drivetrain-functions) - helper functions for autonomous movement
-- [Sensors: IMU](/software/sensors-imu) - using the built-in gyroscope
+- [Getting Started](/software/getting-started): overview of the FTC ecosystem
+- [Android Studio Setup](/software/basics-android-studio): full installation walkthrough
+- [Wiring and Configuration](/software/basics-wiring): connecting hardware and naming devices
+- [Motors and Servos](/software/basics-motors-servos): how to control your actuators
+- [Types of OpModes](/software/basics-types-of-opmodes): LinearOpMode vs. OpMode explained
+- [Mecanum Drivetrain](/software/mecanum-drivetrain): the full mecanum math
+- [TeleOp Introduction](/software/teleop-introduction): how TeleOp works
+- [TeleOp Beginner](/software/teleop-beginner): your first full driving program
+- [Finite State Machines](/software/teleop-fsm): cleaner button handling with FSMs
+- [Encoder Autonomous Introduction](/software/encoder-autonomous-introduction): distance-based autonomous
+- [Encoder Drivetrain Functions](/software/encoder-autonomous-drivetrain-functions): helper functions for autonomous movement
+- [Sensors: IMU](/software/sensors-imu): using the built-in gyroscope
 
 ---
 

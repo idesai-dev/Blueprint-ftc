@@ -458,7 +458,7 @@
 		newPostError = '';
 		const slug = newPostSlug.trim();
 		if (!slug || !/^[a-z0-9-]+$/.test(slug)) {
-			newPostError = 'Invalid slug — use only lowercase letters, numbers, and hyphens.';
+			newPostError = 'Invalid slug: use only lowercase letters, numbers, and hyphens.';
 			return;
 		}
 		
@@ -526,7 +526,7 @@ Start writing here...
 ══════════════════════════════════════════════════════════════════════════════ -->
 <div class="editor-shell">
 
-	<!-- ── LEFT SIDEBAR — File Browser ── -->
+	<!-- ── LEFT SIDEBAR - File Browser ── -->
 	<aside class="sidebar">
 		<div class="sidebar-top">
 			<div class="sidebar-brand">
@@ -572,7 +572,7 @@ Start writing here...
 		</nav>
 	</aside>
 
-	<!-- ── CENTRE — Editor ── -->
+	<!-- ── CENTRE - Editor ── -->
 	<main class="editor-main">
 		{#if !activeSlug}
 			<div class="empty-state">
@@ -679,7 +679,7 @@ Start writing here...
 										<span class="toggle-label">{fm.published ? 'true' : 'false'}</span>
 									</label>
 								{:else}
-									<span class="locked-badge">🔒 locked — always <code>false</code></span>
+									<span class="locked-badge">🔒 locked, always <code>false</code></span>
 								{/if}
 								<div class="unlock-row">
 									<input class="unlock-input" type="password" bind:value={publishKey} placeholder="Enter key to unlock…" />

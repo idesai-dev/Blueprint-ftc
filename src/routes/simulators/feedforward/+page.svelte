@@ -19,7 +19,7 @@
 		</div>
 		<h1 class="post-title animate-fade-up" style="animation-delay:60ms; margin: 0 auto 1rem;">Feedforward Tuning</h1>
 		<p class="subtitle animate-fade-up" style="animation-delay:120ms">
-			Feedforward control predicts the motor output needed before errors even occur — reducing the
+			Feedforward control predicts the motor output needed before errors even occur, reducing the
 			burden on PID feedback and dramatically improving tracking accuracy in FTC drivetrains and
 			mechanisms.
 		</p>
@@ -50,11 +50,11 @@
 					<h3>2. Tuning Guide</h3>
 					<ul>
 						<li>
-							<strong>kS:</strong> Voltage to overcome static friction. Start small — if the motor hesitates
+							<strong>kS:</strong> Voltage to overcome static friction. Start small: if the motor hesitates
 							at rest, increase it.
 						</li>
 						<li>
-							<strong>kV:</strong> Voltage per unit/s of velocity. Tune this first — it's the dominant
+							<strong>kV:</strong> Voltage per unit/s of velocity. Tune this first, it's the dominant
 							term during cruise.
 						</li>
 						<li>
@@ -83,7 +83,7 @@
 					<p>
 						PID reacts to errors <em>after</em> they happen. Feedforward <em>anticipates</em> the required
 						output. Used together, FF handles the steady-state load while PID corrects small residual
-						errors — giving you fast, stable, low-oscillation control.
+						errors, giving you fast, stable, low-oscillation control.
 					</p>
 				</div>
 			</div>

@@ -126,7 +126,7 @@
 					type="number"
 					min="0.5"
 					step="0.5"
-					placeholder="—"
+					placeholder="-"
 					bind:value={autoResetSeconds}
 					oninput={handleAutoResetInput}
 					class="auto-reset-input"

@@ -4,7 +4,7 @@ panelCategory: "Control"
 date: 2026-05-28
 description: A comprehensive guide to proportional, integral, and derivative control in FTC.
 tags: [completed, software, intermediate, control, completed]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 
@@ -15,7 +15,7 @@ published: true
 PID (Proportional, Integral, Derivative) control is the most common control algorithm used in FTC for precise movements, whether it's for a drivetrain, an arm, or a slide.
 
 <div class="tuner-callout" style="padding: 1.5rem; background: rgba(116, 215, 237, 0.05); border-radius: var(--radius-md); border-left: 4px solid var(--accent-cyan); margin: 2rem 0;">
-    <p> 🚀 <strong>Try our new full-page <a href="/simulators/pid">PID Simulator</a></strong> for a deeper understanding of PID!</p>
+    <p>The <strong><a href="/simulators/pid">PID Simulator</a></strong> lets you tune the constants live and watch how the response changes.</p>
 </div>
 
 <PIDVisualizer />

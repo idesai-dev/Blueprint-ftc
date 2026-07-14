@@ -7,10 +7,10 @@ import rehypeKatex from 'rehype-katex';
 
 export default {
 	extensions: ['.svelte', '.md'],
-	preprocess: [vitePreprocess(), mdsvex({ 
+	preprocess: [vitePreprocess(), mdsvex({
 		extensions: ['.md'],
 		remarkPlugins: [remarkMath],
-		rehypePlugins: [rehypeKatex]
+		rehypePlugins: [[rehypeKatex, { output: 'html' }]]
 	})],
 	kit: {
 		adapter: adapter({

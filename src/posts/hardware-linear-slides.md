@@ -12,7 +12,7 @@ Linear slides let your robot reach places it couldn't otherwise get to. Without 
 
 ## What a Linear Slide Actually Is
 
-A linear slide is a mechanism that extends in a straight line. The simplest version is two tubes or rails, where one slides inside or alongside the other. When powered, the inner stage moves outward along the outer stage. Add more stages and you get more total extension from the same starting length - this is called a cascade or telescoping slide.
+A linear slide is a mechanism that extends in a straight line. The simplest version is two tubes or rails, where one slides inside or alongside the other. When powered, the inner stage moves outward along the outer stage. Add more stages and you get more total extension from the same starting length. This is called a cascade or telescoping slide.
 
 The two most common configurations in FTC are vertical slides, where the robot extends upward to reach elevated goals, and horizontal slides, where the robot extends outward to reach across the field. Some robots use diagonal slides or combinations of both. The design you need depends on the game.
 
@@ -36,13 +36,13 @@ There are a few ways to move a linear slide. The method you choose affects how e
 
 ### String-Driven Slides
 
-String-driven (or cable-driven) slides are the most popular power method in FTC for good reason. A motor winds a string onto a spool. As the string gets shorter on one side, it pulls the slide stage outward. Another string handles retraction. It sounds simple because it is - and simple things break less often.
+String-driven (or cable-driven) slides are the most popular power method in FTC for good reason. A motor winds a string onto a spool. As the string gets shorter on one side, it pulls the slide stage outward. Another string handles retraction. It sounds simple because it is, and simple things break less often.
 
-The main things to get right with string-driven slides are spool design and string tension. Your spool should have a lip on each side so the string winds on neatly without overlapping in ways that cause jumps. The string itself should have very little stretch - Dyneema or Spectra line works well. Monofilament fishing line also works and is cheap.
+The main things to get right with string-driven slides are spool design and string tension. Your spool should have a lip on each side so the string winds on neatly without overlapping in ways that cause jumps. The string itself should have very little stretch. Dyneema or Spectra line works well. Monofilament fishing line also works and is cheap.
 
 For retraction, you can either use a second string wound the opposite direction, or use gravity (on a vertical slide) to pull the slide back down when the motor releases tension. Gravity return is simpler but slower and less controlled. A second string gives you active retraction you can control.
 
-Pulleys help redirect your string around corners. Use actual bearings-in-a-pulley if you can, rather than a fixed post - a rotating pulley has much less friction.
+Pulleys help redirect your string around corners. Use actual bearings-in-a-pulley if you can, rather than a fixed post. A rotating pulley has much less friction.
 
 ### Rack and Pinion
 
@@ -54,7 +54,7 @@ Rack and pinion setups are very stiff and give you precise control over position
 
 However you build your slides, the inner stage needs to stay aligned with the outer stage as it extends. If the inner stage can wobble or twist, you'll get binding, inconsistent extension, and eventually wear damage.
 
-V-groove bearings are the standard solution on goBILDA v-rail slides. The bearings lock into the groove and prevent sideways movement. Make sure your bearing carriage is rigid - if the carriage itself flexes, you'll still get slop.
+V-groove bearings are the standard solution on goBILDA v-rail slides. The bearings lock into the groove and prevent sideways movement. Make sure your bearing carriage is rigid. If the carriage itself flexes, you'll still get slop.
 
 Nylon sliders are another option, where a low-friction plastic block rides between two rail surfaces. They're simple and work fine at low loads, but they wear down over time.
 

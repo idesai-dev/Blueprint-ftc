@@ -4,7 +4,7 @@ panelCategory: "Basics"
 date: 2026-04-22
 description: The core differences between an OpMode and a LinearOpMode with Java examples.
 tags: [completed, software, beginner, video]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

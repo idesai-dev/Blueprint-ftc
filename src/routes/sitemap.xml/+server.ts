@@ -13,14 +13,12 @@ export async function GET() {
 		'/software',
 		'/hardware',
 		'/outreach',
-		'/about',
 		'/suggest',
 		'/editor',
 		'/simulators/pid',
 		'/simulators/feedforward',
 		'/simulators/motionprofile',
 		'/simulators/pid-game',
-		'/simulators/pedro-visualizer',
 		'/simulators/mecanum'
 	];
 

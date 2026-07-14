@@ -4,7 +4,7 @@ panelCategory: "Sensors"
 date: 2026-05-10
 description: How to use a distance sensor
 tags: [software, completed, beginner]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

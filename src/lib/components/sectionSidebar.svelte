@@ -7,7 +7,7 @@
 	type HeadingEntry = {
 		id: string;
 		text: string;
-		level: number; // 1–4
+		level: number; // 1 to 4
 	};
 
 	let headings: HeadingEntry[] = $state([]);

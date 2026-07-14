@@ -40,15 +40,15 @@ With adults, especially parents and teachers, they want to know the bigger pictu
 
 Common questions you will get at almost every demo:
 
-- **"How long did it take to build?"** - Give a realistic answer. Something like "we started in September and had a working robot by December."
-- **"How does it know what to do?"** - Explain it simply: "We write code that tells it exactly what to do, step by step."
-- **"What grade are you in?"** - Always answer this. It helps people connect with the team as real students, not just some faceless group.
+- **"How long did it take to build?"** Give a realistic answer. Something like "we started in September and had a working robot by December."
+- **"How does it know what to do?"** Explain it simply: "We write code that tells it exactly what to do, step by step."
+- **"What grade are you in?"** Always answer this. It helps people connect with the team as real students, not just some faceless group.
 
 ## Safety Considerations
 
 Safety at a demo is your responsibility. Keep a clear boundary around the robot's operating area. Use tape on the floor, cones, or have a team member standing at each corner politely asking people to step back. Never run the robot at full speed when people are standing close by. Scale back your speed settings for demos so the robot moves more slowly than it would in competition.
 
-Watch for cables. The tether between the driver station and the robot can be a tripping hazard if it runs across a walking path. Keep it tucked away or run it off to the side. If you are doing a wireless demo, great - one fewer hazard to worry about.
+Watch for cables. The tether between the driver station and the robot can be a tripping hazard if it runs across a walking path. Keep it tucked away or run it off to the side. If you are doing a wireless demo, great. One fewer hazard to worry about.
 
 Walk through your robot before the event and look at it from the perspective of a kid reaching out to touch it. Cover anything sharp or pointy.
 

@@ -4,7 +4,7 @@ panelCategory: "Sensors"
 date: 2026-05-06
 description: How to read RGB and HSV values from the REV Color Sensor.
 tags: ["software", "completed", "beginner"]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

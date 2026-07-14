@@ -19,7 +19,7 @@
 		</div>
 		<h1 class="post-title animate-fade-up" style="animation-delay:60ms; margin: 0 auto 1rem;">Motion Profiling</h1>
 		<p class="subtitle animate-fade-up" style="animation-delay:120ms">
-			Trapezoidal motion profiles let your robot move smoothly and predictably — accelerating to
+			Trapezoidal motion profiles let your robot move smoothly and predictably, accelerating to
 			speed, cruising, then decelerating to a precise stop. Essential for consistent FTC
 			autonomous routines.
 		</p>
@@ -42,7 +42,7 @@
 					<p>
 						The simulator generates a velocity profile for a mechanism traveling a set distance.
 						Adjust <strong>Max Velocity</strong> and <strong>Max Acceleration</strong> to see how the
-						profile shape changes — including the switch from trapezoidal to triangular when the distance
+						profile shape changes, including the switch from trapezoidal to triangular when the distance
 						is too short to reach peak speed.
 					</p>
 				</div>
@@ -50,7 +50,7 @@
 					<h3>2. Tuning Guide</h3>
 					<ul>
 						<li>
-							<strong>Distance:</strong> Total travel. Short distances produce a triangular profile —
+							<strong>Distance:</strong> Total travel. Short distances produce a triangular profile:
 							the robot never hits max velocity.
 						</li>
 						<li>

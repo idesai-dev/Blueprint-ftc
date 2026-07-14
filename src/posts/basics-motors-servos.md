@@ -4,7 +4,7 @@ panelCategory: "Basics"
 date: 2026-04-15
 description: Programming guide for DC motors and servos in FTC.
 tags: [completed, software, beginner, completed]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

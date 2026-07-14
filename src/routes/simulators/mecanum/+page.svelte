@@ -71,7 +71,7 @@
 		if (Math.abs(smooth_y)  < 0.001) smooth_y  = 0;
 		if (Math.abs(smooth_rx) < 0.001) smooth_rx = 0;
 
-		// Rotate orientation based on smooth_rx — accumulate freely, no wrap
+		// Rotate orientation based on smooth_rx, accumulate freely, no wrap
 		imuAngle += smooth_rx * ROT_SPEED * dt;
 
 		rafId = requestAnimationFrame(loop);
@@ -151,7 +151,7 @@
 						class="robot-chassis"
 						style={isFieldCentric ? `transform: rotate(${imuAngle}deg)` : ''}
 					>
-						<!-- Movement vector arrow — always centered, world-space direction -->
+						<!-- Movement vector arrow: always centered, world-space direction -->
 						{#if Math.max(Math.abs(smooth_x), Math.abs(smooth_y)) > 0.01}
 							<div
 								class="move-vector"
@@ -291,7 +291,7 @@
 					<p>
 						In robot-centric mode, <strong>W</strong> always drives the robot forward. In field-centric,
 						the IMU heading rotates the input vector so <strong>W</strong> always drives away from the
-						driver — the robot body rotates to show its real heading.
+						driver, the robot body rotates to show its real heading.
 					</p>
 				</div>
 				<div class="card">
@@ -305,7 +305,7 @@
 					<h3>Strafing diagonally</h3>
 					<p>
 						Press <strong>W + D</strong> simultaneously. Two wheels drive forward, two receive zero
-						power — the robot slides diagonally. This is unique to mecanum and impossible with
+						power, the robot slides diagonally. This is unique to mecanum and impossible with
 						standard tank drive.
 					</p>
 				</div>
@@ -317,7 +317,7 @@
 					Our full mecanum drive guide covers the math, Java implementation, and tips for
 					calibrating field-centric mode with a BNO055 IMU.
 				</p>
-				<a href="/hardware/mecanum-drive" class="btn">View Mecanum Guide →</a>
+				<a href="/software/mecanum-drivetrain" class="btn">View Mecanum Guide →</a>
 			</div>
 		</div>
 
@@ -414,7 +414,7 @@
 		color: var(--text-secondary);
 	}
 
-	/* North indicator — fixed, never rotates */
+	/* North indicator: fixed, never rotates */
 	.field-north {
 		display: flex;
 		flex-direction: column;
@@ -434,7 +434,7 @@
 		border-bottom: 10px solid var(--accent-cyan);
 	}
 
-	/* Robot chassis — this rotates */
+	/* Robot chassis: this rotates */
 	.robot-chassis {
 		position: relative;
 		width: 148px;
@@ -446,7 +446,7 @@
 		transition: transform 0.08s linear;
 	}
 
-	/* Movement vector — pivot at bottom-center so it points away from center */
+	/* Movement vector: pivot at bottom-center so it points away from center */
 	.move-vector {
 		position: absolute;
 		top: 50%;

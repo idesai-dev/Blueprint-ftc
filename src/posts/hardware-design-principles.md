@@ -20,25 +20,25 @@ This doesn't mean your robot has to be primitive. It means you should earn every
 
 ## Build for Robustness
 
-FTC robots get bumped, pushed, dropped, and knocked around a lot - in the shop during testing and on the field during matches. If your mechanism only works when everything is perfect, it's going to fail at the worst time.
+FTC robots get bumped, pushed, dropped, and knocked around a lot, in the shop during testing and on the field during matches. If your mechanism only works when everything is perfect, it's going to fail at the worst time.
 
-Think about your worst case, not your best case. When you're testing, don't just run the mechanism gently and see if it works. Push it hard. Hit it from the side. Run it repeatedly. See what breaks. If something breaks in your shop, that's good - you found it before a match. If it only breaks at competition, that's a very bad day.
+Think about your worst case, not your best case. When you're testing, don't just run the mechanism gently and see if it works. Push it hard. Hit it from the side. Run it repeatedly. See what breaks. If something breaks in your shop, that's good. You found it before a match. If it only breaks at competition, that's a very bad day.
 
 Overbuilt is usually better than underbuilt, within reason. Add gussets to joints that see a lot of stress. Use multiple bolts where one bolt is borderline. If a mechanism feels flimsy when you shake it, fix it before you compete with it.
 
 ## Design for Replaceability
 
-Things will break at competition. That is not a pessimistic statement - it is just the reality of running robots through multiple matches in a row under pressure. What separates experienced teams from new ones is how fast they can get a broken robot back on the field.
+Things will break at competition. That is not a pessimistic statement. It is just the reality of running robots through multiple matches in a row under pressure. What separates experienced teams from new ones is how fast they can get a broken robot back on the field.
 
 Design your mechanisms so that broken parts can be swapped in minutes, not hours. That means bolts instead of glue, standard off-the-shelf hardware instead of one-of-a-kind custom parts, and clear assembly order so a tired student at 10pm can still figure out how to put it back together.
 
-Label your spare parts bin. Bring extras of the things most likely to break - motors, gears, the small structural pieces around high-stress joints, zip ties, and bolts. If you've ever had to skip a match because you were still fixing your robot, you understand why this matters.
+Label your spare parts bin. Bring extras of the things most likely to break: motors, gears, the small structural pieces around high-stress joints, zip ties, and bolts. If you've ever had to skip a match because you were still fixing your robot, you understand why this matters.
 
 ## Weight Distribution
 
 Where your weight sits on the robot affects how it handles on the field. A robot that's very heavy in the back will pitch forward when it brakes. A robot that's heavy on one side will drift and be harder to drive straight.
 
-As a general rule, keep heavy things low and centered. The battery is usually the heaviest single item on an FTC robot - try to mount it as low as possible in the chassis. The Control Hub and other electronics are lighter but should still be placed with balance in mind.
+As a general rule, keep heavy things low and centered. The battery is usually the heaviest single item on an FTC robot. Try to mount it as low as possible in the chassis. The Control Hub and other electronics are lighter but should still be placed with balance in mind.
 
 High center of gravity is especially bad if your robot is tall. A tall, top-heavy robot can tip over when it runs into another robot or drives over a field element. Keep mass close to the ground whenever you have a choice.
 
@@ -46,7 +46,7 @@ High center of gravity is especially bad if your robot is tall. A tall, top-heav
 
 Metal parts wear against each other over time. Bolts loosen from vibration. Bearings develop play from repeated loading. On a brand-new robot everything feels tight, but after 20 matches things start to rattle and drift.
 
-A few habits will keep things tight longer. Use nylock nuts (the ones with a nylon insert that grips the bolt threads) on anything that vibrates or rotates. They won't back off on their own the way standard hex nuts do. For critical bolts, a drop of thread-locker like Loctite Blue 242 works well - it holds the bolt in place but can still be removed with a wrench if you need to.
+A few habits will keep things tight longer. Use nylock nuts (the ones with a nylon insert that grips the bolt threads) on anything that vibrates or rotates. They won't back off on their own the way standard hex nuts do. For critical bolts, a drop of thread-locker like Loctite Blue 242 works well. It holds the bolt in place but can still be removed with a wrench if you need to.
 
 For bearings, add a small amount of preload so there's no free play in the radial direction. On many FTC bearing blocks, eccentric nuts let you adjust the bearing position to dial this in.
 
@@ -62,7 +62,7 @@ Budget time for this. If you spend the first eight weeks of build season perfect
 
 ## Respect the Size Limit
 
-FTC robots must fit inside an 18 by 18 by 18 inch cube at the start of the match. That's your starting configuration. Once the match starts, mechanisms can extend beyond that footprint - but they have to start inside it.
+FTC robots must fit inside an 18 by 18 by 18 inch cube at the start of the match. That's your starting configuration. Once the match starts, mechanisms can extend beyond that footprint, but they have to start inside it.
 
 Plan your starting configuration before you start building. Sketch out where every mechanism sits when the robot is compacted. If you add a new mechanism late in the season without checking, you might find out at inspection that you can't fit in the sizing box, and then you're making emergency cuts on match day.
 

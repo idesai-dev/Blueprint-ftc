@@ -4,7 +4,7 @@ panelCategory: "Basics"
 date: 2026-04-08
 description: Essential guide to wiring your FTC robot and configuring it in the app.
 tags: [completed, software, beginner, manual, completed]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

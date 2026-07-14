@@ -4,7 +4,7 @@ panelCategory: "Basics"
 date: 2026-04-02
 description: Complete set up guide for Android Studio on both Windows and Mac.
 tags: ["completed", "software", "beginner", "rookie", "video"]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

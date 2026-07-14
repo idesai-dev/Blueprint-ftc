@@ -18,11 +18,11 @@ At a demo, your team is the focus. People watch you and ask questions. At a work
 
 There are many directions you can take a workshop. Here are some popular ones:
 
-- **Intro to programming** - Use Scratch or a block coding app to teach basic logic. Have students build a simple program that makes a character move or a light change color. This works really well for younger kids who have never coded before.
-- **Building simple machines** - Teach students about gears, levers, or pulleys using hands-on models. LEGO kits or popsicle sticks and rubber bands work great here.
-- **Design a mechanism** - Give students cardboard, tape, and limited materials and challenge them to build something specific, like a ramp that can guide a ball into a box. This is a classic engineering design activity.
-- **Robot driving challenges** - Set up a small obstacle course and let students drive a robot through it. Add a timed challenge to make it competitive and exciting.
-- **Wiring basics** - Older students can learn how motors and sensors connect to a control hub. Keep it simple and visual.
+- **Intro to programming.** Use Scratch or a block coding app to teach basic logic. Have students build a simple program that makes a character move or a light change color. This works really well for younger kids who have never coded before.
+- **Building simple machines.** Teach students about gears, levers, or pulleys using hands-on models. LEGO kits or popsicle sticks and rubber bands work great here.
+- **Design a mechanism.** Give students cardboard, tape, and limited materials and challenge them to build something specific, like a ramp that can guide a ball into a box. This is a classic engineering design activity.
+- **Robot driving challenges.** Set up a small obstacle course and let students drive a robot through it. Add a timed challenge to make it competitive and exciting.
+- **Wiring basics.** Older students can learn how motors and sensors connect to a control hub. Keep it simple and visual.
 
 Pick the type that fits your audience and the resources you have available.
 

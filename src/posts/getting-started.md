@@ -4,7 +4,7 @@ panelCategory: "Basics"
 date: 2026-05-15
 description: Welcome to FTC! This guide walks you through the absolute basics of getting started with the competition.
 tags: [completed, rookie guide, beginner]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

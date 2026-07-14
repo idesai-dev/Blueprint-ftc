@@ -4,7 +4,7 @@ panelCategory: "Sensors"
 date: 2026-05-03
 description: Simple digital inputs for limit switches and button presses.
 tags: [software, completed, beginner]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

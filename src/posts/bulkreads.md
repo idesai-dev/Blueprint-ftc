@@ -4,7 +4,7 @@ panelCategory: "Miscellaneous"
 date: 2026-05-18
 description: Optimizing your FTC robot's control loop with LynxModule bulk reading.
 tags: [completed, software, intermediate, performance]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

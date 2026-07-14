@@ -4,7 +4,7 @@ panelCategory: "Sensors"
 date: 2026-05-14
 description: Using the modern, hub-agnostic IMU interface for robot orientation.
 tags: [software, completed, beginner]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 

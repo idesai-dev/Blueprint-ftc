@@ -37,6 +37,7 @@
 	];
 
 	import { devModeState } from '$lib/stores/devMode.svelte';
+	import SidebarSections from './SidebarSections.svelte';
 
 	let { mode = 'article' } = $props();
 
@@ -145,6 +146,8 @@
 			<p class="sidebar-label">{activeGroup ? activeGroup.title : 'Navigation'}</p>
 		</div>
 		<div class="sidebar-scroll">
+			<SidebarSections />
+			<div class="sidebar-divider"></div>
 			{#each visibleGroups as group}
 				<div class="sidebar-group">
 					<button 

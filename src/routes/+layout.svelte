@@ -2,8 +2,6 @@
 	import '../app.css';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import CustomCursor from '$lib/components/CustomCursor.svelte';
-	import DocBot from '$lib/components/DocBot.svelte';
 	import { Toaster, toast } from 'svelte-5-french-toast';
 	import { page } from '$app/stores';
 	import { devModeState } from '$lib/stores/devMode.svelte';
@@ -56,8 +54,6 @@
 	<meta property="twitter:image" content={defaultImage} />
 </svelte:head>
 
-<CustomCursor />
-<DocBot />
 <Toaster />
 
 {#if showSandboxLayout}

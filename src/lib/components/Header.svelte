@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import ThemeToggle from './ThemeToggle.svelte';
-	import { fade } from 'svelte/transition';
-	import { cursorState, toggleCursor } from '$lib/stores/cursor.svelte';
+	import AccessibilityPanel from './AccessibilityPanel.svelte';
 	import { devModeState, setDevMode, initDevMode, setPreviewMode } from '$lib/stores/devMode.svelte';
 	import { goto } from '$app/navigation';
 	import toast from 'svelte-5-french-toast';
@@ -10,22 +9,9 @@
 
 	let isSandboxChild = $state(false);
 
-	let showCursorOnboarding = $state(false);
-
 	onMount(() => {
 		initDevMode();
 		isSandboxChild = window.location.search.includes('sandbox=true');
-		
-		const hasSeenOnboarding = localStorage.getItem('cursorOnboardingSeen');
-		const isDesktop = typeof window !== 'undefined' && window.innerWidth > 1024;
-		
-		if (!hasSeenOnboarding && isDesktop) {
-			setTimeout(() => {
-				showCursorOnboarding = true;
-				// Auto-hide after 40 seconds
-				setTimeout(dismissOnboarding, 40000);
-			}, 1000);
-		}
 
 		window.addEventListener('clearHeaderSearch', () => {
 			displayQuery = '';
@@ -101,10 +87,10 @@
 		children?: NavLink[];
 	};
 
+	// Header stays minimal (ProtoFlow-style): sections live in the left sidebar.
+	// Only the cross-simulator dropdown and Suggest remain, since simulator pages
+	// have no sidebar of their own.
 	const navLinks: NavLink[] = [
-		{ href: '/', label: 'Home' },
-		{ href: '/complete-rookie-guide', label: 'Rookie Guide', devOnly: true},
-		{ href: '/software', label: 'Software'},
 		{
 			label: 'Simulators',
 			children: [
@@ -113,18 +99,12 @@
 				{ href: '/simulators/motionprofile', label: 'Motion Profiling' },
 				{ href: '/simulators/feedforward', label: 'Feedforward' },
 				{ href: '/simulators/pid-game', label: 'PID Learning Game' },
-				{ href: '/simulators/pedro-visualizer', label: 'Pedro Visualizer' },
 				{ href: '/simulators/mecanum', label: 'Mecanum Simulator' },
 				{ href: '/software/markdown-reference', label: 'Markdown Reference', devOnly: true }
 			]
 		},
-		{ href: '/hardware', label: 'Hardware', devOnly: true},
-		{ href: '/outreach', label: 'Outreach', devOnly: true},
-		{ href: '/editor', label: 'Editor', devOnly: true},
-		{ href: '/review', label: 'Review' },
 		{ href: '/suggest', label: 'Suggest' },
-
-		{ href: '/about', label: 'About' }
+		{ href: '/editor', label: 'Editor', devOnly: true }
 	];
 
 	const visibleNavLinks = $derived(
@@ -147,11 +127,6 @@
 	function closeMenu() {
 		menuOpen = false;
 		simulatorsOpen = false;
-	}
-
-	function dismissOnboarding() {
-		showCursorOnboarding = false;
-		localStorage.setItem('cursorOnboardingSeen', 'true');
 	}
 
 	function handleSearchSubmit(e: Event) {
@@ -183,7 +158,6 @@
 			'/simulators/pid',
 			'/simulators/motionprofile',
 			'/simulators/feedforward',
-			'/simulators/pedro-visualizer',
 			'/simulators/mecanum'
 		].some((path) => $page.url.pathname === path || $page.url.pathname.startsWith(`${path}/`));
 </script>
@@ -195,6 +169,7 @@
 		<a href="/" class="logo" onclick={closeMenu}>
 			<span class="logo-mark">⬡</span>
 			<span class="logo-text">Blueprint</span>
+			<span class="logo-docs">/ Docs</span>
 		</a>
 
 		<nav class="nav" class:open={menuOpen} aria-label="Main navigation">
@@ -266,7 +241,7 @@
 				<input
 					bind:this={headerSearchInput}
 					type="search"
-					placeholder="Global Search..."
+					placeholder="Search"
 					bind:value={displayQuery}
 					oninput={handleHeaderInput}
 					onfocus={handleHeaderFocus}
@@ -299,51 +274,7 @@
 				</div>
 			{/if}
 
-			<div class="cursor-toggle-wrapper">
-				<button
-					class="action-btn cursor-toggle"
-					class:active={cursorState.active}
-					onclick={() => { toggleCursor(); dismissOnboarding(); }}
-					title="Toggle Custom Cursor"
-				>
-					{#if cursorState.active}
-						<svg
-							width="18"
-							height="18"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z" /><path d="m13 13 6 6" />
-						</svg>
-					{:else}
-						<svg
-							width="18"
-							height="18"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="3" />
-						</svg>
-					{/if}
-				</button>
-
-				{#if showCursorOnboarding}
-					<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-					<div class="cursor-onboarding" transition:fade onclick={dismissOnboarding}>
-						<p>Toggle custom cursor here for less lag</p>
-						<button class="dismiss-btn" onclick={(e) => { e.stopPropagation(); dismissOnboarding(); }}>✕</button>
-						<div class="arrow"></div>
-					</div>
-				{/if}
-			</div>
+			<AccessibilityPanel />
 
 			<ThemeToggle />
 
@@ -481,6 +412,19 @@
 		line-height: 1;
 	}
 
+	.logo-docs {
+		font-weight: 500;
+		font-size: 0.95rem;
+		color: var(--text-muted);
+		letter-spacing: 0;
+	}
+
+	@media (max-width: 1200px) {
+		.logo-docs {
+			display: none;
+		}
+	}
+
 	.nav {
 		display: flex;
 		align-items: center;
@@ -517,11 +461,11 @@
 
 	.nav-link:hover {
 		color: var(--text-primary);
-		background: rgba(116, 215, 237, 0.08);
+		background: var(--bg-secondary);
 	}
 
 	:global(html.light) .nav-link:hover {
-		background: rgba(116, 215, 237, 0.18);
+		background: var(--bg-secondary);
 	}
 
 	.nav-link.active {
@@ -594,19 +538,13 @@
 	.dropdown-link.active,
 	.dropdown-link[aria-current='page'] {
 		color: var(--text-primary);
-		background: rgba(116, 215, 237, 0.1);
+		background: var(--bg-secondary);
 	}
 
 	:global(html.light) .dropdown-link:hover,
 	:global(html.light) .dropdown-link.active,
 	:global(html.light) .dropdown-link[aria-current='page'] {
-		background: rgba(116, 215, 237, 0.22);
-	}
-
-	.actions {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
+		background: var(--bg-secondary);
 	}
 
 	.header-search-wrap {
@@ -657,21 +595,24 @@
 	}
 
 	.header-search-input {
-		background: var(--bg-card);
+		background: var(--bg-secondary);
 		border: 1px solid var(--border);
-		border-radius: var(--radius-pill);
+		border-radius: var(--radius-md);
 		padding: 0.45rem 3rem 0.45rem 2.2rem;
 		font-size: 0.85rem;
 		color: var(--text-primary);
-		width: 200px;
-		transition: all var(--transition-base);
+		width: 240px;
+		transition: border-color var(--transition-fast), background var(--transition-fast);
 		outline: none;
 	}
 
+	.header-search-input::placeholder {
+		color: var(--text-muted);
+	}
+
 	.header-search-input:focus {
-		width: 280px;
-		border-color: var(--text-primary);
-		box-shadow: var(--glow-cyan);
+		border-color: var(--text-secondary);
+		background: var(--bg-card);
 	}
 
 	.dev-badge {
@@ -731,84 +672,6 @@
 		background: var(--bg-card-hover);
 	}
 
-	.action-btn.active {
-		background: var(--accent-cyan-dim);
-		border-color: var(--text-primary);
-		color: var(--text-primary);
-	}
-
-	.cursor-toggle-wrapper {
-		position: relative;
-	}
-
-	@media (max-width: 1024px) {
-		.cursor-toggle-wrapper {
-			display: none;
-		}
-	}
-
-	.cursor-onboarding {
-		position: absolute;
-		top: calc(100% + 12px);
-		right: -10px;
-		width: 190px;
-		background: var(--bg-card);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		padding: 0.75rem 1rem;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-		z-index: 1000;
-		display: flex;
-		align-items: flex-start;
-		gap: 0.5rem;
-		animation: float 3s ease-in-out infinite;
-	}
-
-	@keyframes float {
-		0%, 100% { transform: translateY(0); }
-		50% { transform: translateY(-4px); }
-	}
-
-	:global(html.dark) .cursor-onboarding {
-		border-color: var(--text-primary);
-		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), var(--glow-cyan);
-	}
-
-	.cursor-onboarding p {
-		font-family: var(--font-sans);
-		font-size: 0.75rem;
-		font-weight: 600;
-		color: var(--text-primary);
-		margin: 0;
-		line-height: 1.3;
-	}
-
-	.dismiss-btn {
-		background: none;
-		border: none;
-		color: var(--text-muted);
-		cursor: pointer;
-		padding: 0 2px;
-		font-size: 0.8rem;
-		transition: color var(--transition-fast);
-	}
-
-	.dismiss-btn:hover {
-		color: var(--text-primary);
-	}
-
-	.cursor-onboarding .arrow {
-		position: absolute;
-		top: -6px;
-		right: 20px;
-		width: 10px;
-		height: 10px;
-		background: var(--bg-card);
-		border-left: 1px solid var(--text-primary);
-		border-top: 1px solid var(--text-primary);
-		transform: rotate(45deg);
-	}
-
 	.menu-btn {
 		display: none;
 		flex-direction: column;
@@ -858,8 +721,8 @@
 			display: flex;
 		}
 
-		.cursor-toggle {
-			display: none;
+		.actions {
+			margin-left: auto;
 		}
 
 		.header-search-input {

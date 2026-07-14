@@ -17,7 +17,7 @@
 			<a href="/software">Software</a>
 			<a href="/hardware">Hardware</a>
 			<a href="/outreach">Outreach</a>
-			<a href="/about">About</a>
+			<a href="/review">Review</a>
 		</nav>
 
 		<p class="copy">&copy; {year} Blueprint - An open FTC knowledge base.</p>
@@ -64,10 +64,7 @@
 
 	.logo-mark {
 		font-size: 1.2rem;
-		background: var(--gradient-accent);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: var(--text-primary);
 	}
 
 	.tagline {

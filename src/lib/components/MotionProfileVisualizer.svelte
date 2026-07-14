@@ -174,7 +174,7 @@
 			<span class="label">SIMULATION</span>
 			<h1>Motion Profiling</h1>
 			<p class="subtitle">
-				Trapezoidal velocity profiles for smooth, controlled movement — the foundation of FTC
+				Trapezoidal velocity profiles for smooth, controlled movement: the foundation of FTC
 				autonomous routines.
 			</p>
 		</div>
@@ -564,7 +564,7 @@
 				<div>
 					<strong>Cruise Phase</strong>
 					<p>
-						Constant velocity. Only present if distance is large enough — short moves produce a
+						Constant velocity. Only present if distance is large enough, short moves produce a
 						triangular profile.
 					</p>
 				</div>
@@ -574,7 +574,7 @@
 				<div>
 					<strong>Deceleration Phase</strong>
 					<p>
-						Mirror of acceleration — motor decelerates at the same rate to arrive at the target with
+						Mirror of acceleration: motor decelerates at the same rate to arrive at the target with
 						zero velocity.
 					</p>
 				</div>

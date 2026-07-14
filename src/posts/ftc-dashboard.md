@@ -2,9 +2,9 @@
 title: FTC Dashboard & Live PID Tuning
 date: 2026-06-01
 panelCategory: "Miscellaneous"
-description: Tune your robot's PID controller in real time using FTC Dashboard - No rebuilding required
+description: Tune your robot's PID controller in real time using FTC Dashboard, no rebuilding required.
 tags: ["intermediate", "pid", "dashboard", "completed", "software"]
-author: Ishaan Desai
+author: Blueprint
 published: true
 ---
 
@@ -14,7 +14,7 @@ For more detailed information, visit the <a href="https://acmerobotics.github.io
 
 # FTC Dashboard & PID Live Tuning
 
-> Dial in your robot's motion without touching Android Studio - change constants live, graph your error in real time, and lock in values that actually work.
+> Dial in your robot's motion without touching Android Studio: change constants live, graph your error in real time, and lock in values that actually work.
 
 ---
 
@@ -82,11 +82,11 @@ public class LiftConstants {
 
 ### Why `public static`?
 
-Static variables live on the **class itself**, not on any object instance. When Dashboard updates a value, it writes directly to that memory location - and since your running code reads from the same place, the change takes effect **instantly** with no restart needed.
+Static variables live on the **class itself**, not on any object instance. When Dashboard updates a value, it writes directly to that memory location, and since your running code reads from the same place, the change takes effect **instantly** with no restart needed.
 
 ### Why `PIDFCoefficients`?
 
-Instead of four separate `double` fields, the FTC SDK provides `PIDFCoefficients` - a single object with `.p`, `.i`, `.d`, and `.f` fields built in. Dashboard knows how to display and edit each field individually, so you get a clean set of sliders with no extra boilerplate.
+Instead of four separate `double` fields, the FTC SDK provides `PIDFCoefficients`, a single object with `.p`, `.i`, `.d`, and `.f` fields built in. Dashboard knows how to display and edit each field individually, so you get a clean set of sliders with no extra boilerplate.
 
 ---
 
@@ -116,7 +116,7 @@ Access coefficients anywhere with `RobotConstants.Lift.PIDF.p`, `.d`, etc.
 
 ## Understanding PD Control
 
-For most FTC mechanisms, **P and D are all you need.** The integral term (I) sounds useful in theory but causes more problems than it solves in practice - windup, instability, and oscillation that's hard to debug. Leave it at zero.
+For most FTC mechanisms, **P and D are all you need.** The integral term (I) sounds useful in theory but causes more problems than it solves in practice: windup, instability, and oscillation that's hard to debug. Leave it at zero.
 
 | Term | What It Does | Too High → | Too Low → |
 |------|-------------|-----------|----------|
@@ -234,7 +234,7 @@ public class LiftPIDTuner extends LinearOpMode {
 ---
 
 ## WARNING: Dashboard changes are temporary.
-Once you find values that work, copy them back into your code in Android Studio - they **will not be saved** when the robot restarts.
+Once you find values that work, copy them back into your code in Android Studio. They **will not be saved** when the robot restarts.
 
 ### Tip
 Use `MultipleTelemetry` (shown above) instead of calling `FtcDashboard.getInstance().getTelemetry()` directly. It logs to both the Driver Station and the Dashboard graph simultaneously, with one line of code.

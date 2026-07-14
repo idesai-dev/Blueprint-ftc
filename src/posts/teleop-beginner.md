@@ -10,7 +10,7 @@ published: true
 
 ## Your First Mecanum TeleOp
 
-If you have not already, read the [TeleOp Introduction](/teleop-introduction) first. This guide picks up where that one left off and walks you through writing a complete, working mecanum drive TeleOp program from scratch.
+If you have not already, read the [TeleOp Introduction](/software/teleop-introduction) first. This guide picks up where that one left off and walks you through writing a complete, working mecanum drive TeleOp program from scratch.
 
 By the end of this guide, your robot will drive in all directions with the left stick and rotate with the right stick, just like a good mecanum drive should.
 
@@ -216,4 +216,4 @@ Once you have uploaded the code:
 3. Press **START** and test each direction: forward, backward, strafe left, strafe right, and rotation.
 4. If a wheel spins the wrong way, try reversing that motor's direction in code.
 
-From here, a great next step is learning how to add attachment control using `gamepad2`, or reading about [Finite State Machines](/teleop-fsm) to manage more complex robot behaviors cleanly.
+From here, a great next step is learning how to add attachment control using `gamepad2`, or reading about [Finite State Machines](/software/teleop-fsm) to manage more complex robot behaviors cleanly.

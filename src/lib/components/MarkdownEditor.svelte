@@ -285,7 +285,7 @@
 			}
 		} else if (!content) {
 			status = 'idle';
-			statusMsg = 'No token — cannot load file.';
+			statusMsg = 'No token, cannot load file.';
 			return;
 		}
 
@@ -314,7 +314,7 @@
 
 	async function save() {
 		const token = GITHUB_TOKEN;
-		if (!token) { statusMsg = 'No GitHub PAT — enter it in the footer below.'; status = 'error'; return; }
+		if (!token) { statusMsg = 'No GitHub PAT: enter it in the footer below.'; status = 'error'; return; }
 		if (!content.trim() || status === 'saving') return;
 		status = 'saving';
 		statusMsg = 'Committing to GitHub…';
@@ -461,7 +461,7 @@
 					<!-- Mobile warning banner -->
 					{#if isMobile}
 						<div class="mobile-warning">
-							Editor not recommended on mobile — some features may not work correctly.
+							Editor not recommended on mobile, some features may not work correctly.
 						</div>
 					{/if}
 

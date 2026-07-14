@@ -12,7 +12,7 @@ Every experienced FTC team was a rookie once. Someone helped you figure out how 
 
 ## Why This Matters
 
-FIRST's mission is to inspire young people in STEM. That mission does not just happen through your own team - it spreads when experienced teams lift up the teams around them. Judges for awards like the Inspire Award and the Connect Award are looking for teams that contribute to the broader community, not just teams that perform well on the field.
+FIRST's mission is to inspire young people in STEM. That mission does not just happen through your own team. It spreads when experienced teams lift up the teams around them. Judges for awards like the Inspire Award and the Connect Award are looking for teams that contribute to the broader community, not just teams that perform well on the field.
 
 Beyond the award implications, supporting rookies just makes the FTC community better for everyone. Stronger teams in your region mean more competitive and exciting tournaments. It means more kids getting a real shot at this experience. And honestly, teaching something is one of the best ways to deepen your own understanding of it.
 
@@ -20,7 +20,7 @@ Beyond the award implications, supporting rookies just makes the FTC community b
 
 ### Host Workshops
 
-One of the most impactful things you can do is organize a workshop specifically for rookie teams in your region. Pick a topic where rookies commonly struggle - setting up Android Studio, understanding the game manual, wiring basics, or how the engineering notebook works - and teach it.
+One of the most impactful things you can do is organize a workshop specifically for rookie teams in your region. Pick a topic where rookies commonly struggle (setting up Android Studio, understanding the game manual, wiring basics, or how the engineering notebook works) and teach it.
 
 You do not need a fancy venue. A library, school classroom, or even a garage works fine. Keep it hands-on if you can. Rookies learn a lot more from doing than from watching a slide deck.
 
@@ -38,7 +38,7 @@ This does not mean you need to drop everything and be their full-time support cr
 
 ### Share Resources
 
-If your team has created anything useful - code libraries, CAD files, presentation templates, a wiring guide, or anything else - consider making it available to the community. Share it through your state's FTC channels, post it on Chief Delphi or the FTC Discord, or send it directly to rookie teams you connect with.
+If your team has created anything useful (code libraries, CAD files, presentation templates, a wiring guide, or anything else), consider making it available to the community. Share it through your state's FTC channels, post it on Chief Delphi or the FTC Discord, or send it directly to rookie teams you connect with.
 
 Sharing knowledge does not hurt your team. It makes the whole community stronger.
 
@@ -66,17 +66,17 @@ Knowing what rookies struggle with helps you offer the right kind of support. He
 
 **Basic robot configuration.** Understanding how to configure hardware devices in the driver station app, map motors and servos correctly, and test that everything is working takes time to learn.
 
-**How competitions work.** Inspections, alliance selection, match schedules, gracious professionalism - rookies often show up to their first qualifier with no idea what to expect. A simple walkthrough of competition day logistics can relieve a lot of anxiety.
+**How competitions work.** Inspections, alliance selection, match schedules, gracious professionalism. Rookies often show up to their first qualifier with no idea what to expect. A simple walkthrough of competition day logistics can relieve a lot of anxiety.
 
 ## How to Help Without Being Condescending
 
-This part matters a lot. Nobody likes being talked down to, and rookie teams are not helpless - they just have less experience. Share your knowledge humbly. Say "here is what worked for us" rather than "you should do it this way." Ask what they have already tried before you jump in with solutions.
+This part matters a lot. Nobody likes being talked down to, and rookie teams are not helpless. They just have less experience. Share your knowledge humbly. Say "here is what worked for us" rather than "you should do it this way." Ask what they have already tried before you jump in with solutions.
 
 Remember what it felt like to not know things. You were there not long ago. The goal is to make them feel capable and supported, not dependent on you or embarrassed about what they do not know yet.
 
 ## Formal Mentorship vs. Informal Support
 
-Informal support means helping when you can - answering a question at a scrimmage, sharing a resource online, checking in at competitions. This is easy to do and valuable, but it does not require much commitment.
+Informal support means helping when you can: answering a question at a scrimmage, sharing a resource online, checking in at competitions. This is easy to do and valuable, but it does not require much commitment.
 
 Formal mentorship is a deeper arrangement. It means regular check-ins throughout the season, helping the team with specific goals, and being someone they can reliably turn to. This takes more time but also builds more meaningful relationships and leads to bigger impact.
 

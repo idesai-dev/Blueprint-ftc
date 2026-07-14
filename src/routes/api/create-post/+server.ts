@@ -10,7 +10,7 @@ export const POST = async ({ request }) => {
 	const { slug } = await request.json();
 
 	if (!slug || !/^[a-z0-9-]+$/.test(slug)) {
-		throw error(400, 'Invalid slug — use only lowercase letters, numbers, and hyphens.');
+		throw error(400, 'Invalid slug: use only lowercase letters, numbers, and hyphens.');
 	}
 
 	const filePath = join(process.cwd(), 'src', 'posts', `${slug}.md`);

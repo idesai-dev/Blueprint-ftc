@@ -1,5 +1,5 @@
 /**
- * Developer Mode store — persisted in sessionStorage (lasts only for the current visit).
+ * Developer Mode store, persisted in sessionStorage (lasts only for the current visit).
  * Toggle via global search: "/dev3432" to enable, "/reg3432" to disable.
  */
 

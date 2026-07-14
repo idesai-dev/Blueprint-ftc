@@ -276,7 +276,7 @@
 
 					} else if (ext === 'dae') {
 						const collada = new ColladaLoader().parse(new TextDecoder().decode(buf), '');
-						if (!collada) throw new Error('Collada loader returned null — file may be malformed.');
+						if (!collada) throw new Error('Collada loader returned null: file may be malformed.');
 						applyDefaultMaterial(collada.scene);
 						fitAndPlace(collada.scene);
 						stats = { ...countGeomStats(collada.scene), size: file.size, fmt: 'Collada' };

@@ -38,7 +38,7 @@ This is the problem that **Finite State Machines** (FSMs) solve cleanly.
 
 A Finite State Machine is a way of organizing your code around **states**. The robot can only be in one state at a time, and an event (like a button press) causes it to **transition** to a different state.
 
-Think about a traffic light. It can be GREEN, YELLOW, or RED. It is never GREEN and RED at the same time. That is exactly the idea: a fixed set of possible states, and clear rules for how you move between them.
+A traffic light is a familiar example. It can be GREEN, YELLOW, or RED. It is never GREEN and RED at the same time. That is exactly the idea: a fixed set of possible states, and clear rules for how you move between them.
 
 In FTC, you might use states like:
 - A claw that is either `OPEN` or `CLOSED`

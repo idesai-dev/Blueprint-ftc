@@ -44,11 +44,7 @@
 		{
 			title: 'Pedro Pathing',
 			links: [
-				{ href: '/software/pedro-introduction', label: 'Introduction' },
-				{ href: '/software/pedro-tuning', label: 'How to Tune' },
-				{ href: '/software/pedro-nextftc-subsystems', label: 'NextFTC Subsystems' },
-				{ href: '/software/pedro-making-an-auto', label: 'Making an Auto' },
-				{ href: '/software/pedro-localization', label: 'Localization' }
+				{ href: '/software/pedro-pathing', label: 'Why Pedro Pathing' }
 			]
 		},
 		{
@@ -72,7 +68,6 @@
 		{
 			title: 'Miscellaneous',
 			links: [
-				{ href: '/software/sloth-load', label: 'Sloth' },
 				{ href: '/software/common-practices', label: 'Common Practices' },
 				{ href: '/software/bulkreads', label: 'Bulkreads' },
 				{ href: '/software/mecanum-drivetrain', label: 'Mecanum Drivetrain' }
@@ -88,11 +83,12 @@
 	];
 
 	import { devModeState } from '$lib/stores/devMode.svelte';
+	import SidebarSections from './SidebarSections.svelte';
 
 	let { mode = 'article' } = $props();
 
 	let currentPath = $derived($page.url.pathname);
-	
+
 	function getCompletedPaths() {
 		if ($page.data.completedPaths) return $page.data.completedPaths;
 		if ($page.data.posts) {
@@ -216,6 +212,8 @@
 			<p class="sidebar-label">{activeGroup ? activeGroup.title : 'Navigation'}</p>
 		</div>
 		<div class="sidebar-scroll">
+			<SidebarSections />
+			<div class="sidebar-divider"></div>
 			{#each visibleGroups as group}
 				<div class="sidebar-group">
 					<button 
@@ -302,7 +300,7 @@
 	}
 
 	.sidebar-header-mobile {
-		display: flex;
+		display: none;
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: 0.5rem;

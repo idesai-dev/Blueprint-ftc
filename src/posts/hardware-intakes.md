@@ -8,7 +8,7 @@ author: Blueprint
 published: true
 ---
 
-An intake is the part of your robot that picks up game elements from the field. In FTC, those elements vary season to season - balls, rings, cubes, cones, specimens - but the job of the intake stays the same: grab the element reliably, get it into the robot, and don't drop it. A good intake works quickly, handles imperfect positioning, and almost never jams. A bad intake costs you points every single match, even if every other mechanism on your robot is perfect.
+An intake is the part of your robot that picks up game elements from the field. In FTC, those elements vary season to season: balls, rings, cubes, cones, specimens. But the job of the intake stays the same: grab the element reliably, get it into the robot, and don't drop it. A good intake works quickly, handles imperfect positioning, and almost never jams. A bad intake costs you points every single match, even if every other mechanism on your robot is perfect.
 
 ## Types of Intakes
 
@@ -16,13 +16,13 @@ There are a few main intake styles you'll see in FTC. Each one has situations wh
 
 ### Roller Intakes
 
-Roller intakes are the most common style in competitive FTC. The idea is simple: a spinning roller or set of rollers sits at the front of the robot. When you drive toward a game element, the rollers spin inward and pull it in. The spinning action does the work for you, so you don't have to align perfectly - the roller grabs the element and drags it in even if your approach angle is a little off.
+Roller intakes are the most common style in competitive FTC. The idea is simple: a spinning roller or set of rollers sits at the front of the robot. When you drive toward a game element, the rollers spin inward and pull it in. The spinning action does the work for you, so you don't have to align perfectly. The roller grabs the element and drags it in even if your approach angle is a little off.
 
 Roller intakes are almost always the first choice for picking up small, round elements like balls or rings. They're fast, reliable, and pretty forgiving. The downside is that they need a motor, and they can sometimes spit elements back out if the geometry isn't set up right.
 
 ### Claw and Scoop Intakes
 
-A scoop or passive intake doesn't have any spinning parts. Instead, the robot literally drives into the element and scoops it up. Think of a shovel - you push it under the element and it comes along for the ride.
+A scoop or passive intake doesn't have any spinning parts. Instead, the robot literally drives into the element and scoops it up. It works like a shovel: you push it under the element and it comes along for the ride.
 
 These are simpler to build because there's no motor involved. But they require much more precise driving, and they don't work well for elements that are round or that roll away easily. You'll usually see scoop-style intakes for blocks or other elements that sit flat on the ground and don't move much when you approach.
 
@@ -32,25 +32,25 @@ A belt intake works a lot like a roller intake, but instead of a spinning cylind
 
 ## Roller Intake Details
 
-Since roller intakes are the most widely used, let's go deeper on how they actually work.
+Since roller intakes are the most widely used, here's a closer look at how they actually work.
 
 ### Compliant Wheels vs. Hard Wheels
 
-The material of your rollers matters a lot. Hard plastic or metal rollers can work, but they're unforgiving - if your geometry is slightly off or the element isn't perfectly positioned, the roller just pushes it away instead of grabbing it.
+The material of your rollers matters a lot. Hard plastic or metal rollers can work, but they're unforgiving. If your geometry is slightly off or the element isn't perfectly positioned, the roller just pushes it away instead of grabbing it.
 
-Compliant wheels are much better for most intake applications. These are wheels made from rubber, foam, or flexible plastic (like goBILDA's flex wheels). When they contact a game element, they squish slightly and wrap around it a little. That squish creates more surface contact and grips the element even when the fit isn't perfect. Think of it like grabbing something with a soft hand versus a metal clamp.
+Compliant wheels are much better for most intake applications. These are wheels made from rubber, foam, or flexible plastic (like goBILDA's flex wheels). When they contact a game element, they squish slightly and wrap around it a little. That squish creates more surface contact and grips the element even when the fit isn't perfect, which is why they tolerate variation in element size and position far better than a hard wheel does.
 
 For foam rollers, you can cut foam pool noodles to length and slide them over a dowel or axle. They work surprisingly well for soft, grippy contact. For something more durable, flex wheels from goBILDA are a popular choice on competitive teams.
 
 ### Motor and Gear Ratio
 
-You want your intake rollers spinning fast enough to reliably pull elements in. Too slow and the element barely moves; too fast and it might bounce right through. A typical intake runs somewhere in the range of 200 to 400 RPM at the rollers, but the right speed depends on your element and your design - you'll tune this during testing.
+You want your intake rollers spinning fast enough to reliably pull elements in. Too slow and the element barely moves; too fast and it might bounce right through. A typical intake runs somewhere in the range of 200 to 400 RPM at the rollers, but the right speed depends on your element and your design. You'll tune this during testing.
 
 Don't over-torque a small motor. Intake motors are usually not stalled, so you can use a motor with a light gearbox. A 3:1 or 5:1 external gear ratio is common. If you find your intake is jamming and killing the motor, either widen the intake opening, choose softer rollers, or reduce the gear ratio.
 
 ### Direction Control
 
-The rollers need to spin inward, toward the robot, when you're collecting. During teleop, you'll usually map this to a button that runs the intake forward. You'll also want a button to reverse the intake - sometimes elements get stuck, and running the roller backward clears the jam.
+The rollers need to spin inward, toward the robot, when you're collecting. During teleop, you'll usually map this to a button that runs the intake forward. You'll also want a button to reverse the intake. Sometimes elements get stuck, and running the roller backward clears the jam.
 
 If your intake is at the end of an arm or a flipper, the inward direction depends on the current position of the mechanism. This is worth thinking about in your code.
 
@@ -74,7 +74,7 @@ Test your intake at different approach angles, different speeds, and with elemen
 
 **Jamming.** If elements get stuck in the intake, the opening geometry is probably too tight. Widen the entrance, add a chamfer or angled surface to guide elements in, or try softer rollers that compress instead of blocking.
 
-**Inconsistent collection.** Sometimes the intake works and sometimes it doesn't. This is usually a geometry problem - the rollers aren't positioned right relative to where the element sits. Adjust the height or angle of your roller until it makes consistent contact with every element you approach.
+**Inconsistent collection.** Sometimes the intake works and sometimes it doesn't. This is usually a geometry problem. The rollers aren't positioned right relative to where the element sits. Adjust the height or angle of your roller until it makes consistent contact with every element you approach.
 
 ## Testing and Iterating
 

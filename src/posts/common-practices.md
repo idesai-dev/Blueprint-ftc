@@ -10,7 +10,7 @@ published: true
 
 # Common Practices
 
-These are the habits that separate code that works in the pit from code that works on the field. None of this is magic - it's just stuff experienced teams do consistently.
+These are the habits that separate code that works in the pit from code that works on the field. None of this is magic. It's just stuff experienced teams do consistently.
 
 ## Keep OpModes Organized
 
@@ -77,7 +77,7 @@ Do this for every drive motor.
 
 ## Telemetry Best Practices
 
-Telemetry is your best debugging friend. Use `addData()` to print values you need to see, but call `telemetry.update()` exactly once per loop - not inside conditionals, not multiple times. Calling it multiple times per loop causes flicker and can slow things down.
+Telemetry is your best debugging friend. Use `addData()` to print values you need to see, but call `telemetry.update()` exactly once per loop, not inside conditionals, not multiple times. Calling it multiple times per loop causes flicker and can slow things down.
 
 ```java
 while (opModeIsActive()) {
